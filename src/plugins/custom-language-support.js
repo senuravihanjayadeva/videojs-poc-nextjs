@@ -206,7 +206,7 @@ videojs.registerPlugin('customLanguageSupport', function() {
 
   selectBox.onchange = function () {
     const newLanguage = this.value;
-    playerRef.current.language(newLanguage);
+    player.language(newLanguage);
   };
 
   selectBoxContainer.appendChild(selectBox);
