@@ -1,4 +1,6 @@
-export default function customVideoQualityChanger(player, playerRef, sourceList) {
+import videojs from 'video.js';
+
+videojs.registerPlugin('customVideoQualityChanger', function(playerRef, sourceList) {
   const selectBoxContainer = document.createElement("div");
   selectBoxContainer.classList.add("custom-select-container");
   const selectBox = document.createElement("select");
@@ -19,4 +21,4 @@ export default function customVideoQualityChanger(player, playerRef, sourceList)
 
   selectBoxContainer.appendChild(selectBox);
   playerRef.current.controlBar.el().appendChild(selectBoxContainer);
-}
+});

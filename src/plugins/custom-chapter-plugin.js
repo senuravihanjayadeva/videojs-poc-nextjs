@@ -1,4 +1,6 @@
-export default function customChapterList(player, playerRef, chaptersArray) {
+import videojs from 'video.js';
+
+videojs.registerPlugin('customSelectChapterList', function(player, playerRef, chaptersArray) {
   let prevSelectBoxContainer = document.getElementById(
     "custom-select-container-playlist"
   );
@@ -44,4 +46,4 @@ export default function customChapterList(player, playerRef, chaptersArray) {
 
   selectBoxContainer.appendChild(selectBox);
   playerRef.current.controlBar.el().appendChild(selectBoxContainer);
-}
+});

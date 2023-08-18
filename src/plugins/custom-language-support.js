@@ -1,6 +1,6 @@
 import videojs from "video.js";
 
-export default function customLanguageSupport(playerRef) {
+videojs.registerPlugin('customLanguageSupport', function(playerRef) {
   videojs.addLanguage("es", {
     Playlist: "Playlist",
     Play: "Reproducción",
@@ -210,4 +210,4 @@ export default function customLanguageSupport(playerRef) {
 
   selectBoxContainer.appendChild(selectBox);
   playerRef.current.controlBar.el().appendChild(selectBoxContainer);
-}
+});

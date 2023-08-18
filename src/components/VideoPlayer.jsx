@@ -1,41 +1,20 @@
 import React, { useRef, useEffect } from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
-import customChapterList from "../plugins/custom-chapter-plugin";
+import "../plugins/custom-chapter-plugin.js";
 import "../plugins/custom-chapter-plugin.css";
-import customChaptersInSeekbar from "../plugins/custom-chapter-seekbar";
-import customPlaylist from "../plugins/playlist-plugin";
-import playlistPopup from "../plugins/playlist-popup-plugin";
+import "../plugins/custom-playlist-plugin.js";
+import "../plugins/custom-playlist-popup-plugin.js";
 import "../plugins/playlist.css";
 import "../plugins/custom-chapter-seekbar.css";
-import customVideoQualityChanger from "../plugins/video-quality-plugin";
-import customLanguageSupport from "../plugins/custom-language-support";
+import "../plugins/custom-chapter-seekbar.js";
+import "../plugins/custom-language-support.js";
+import "../plugins/video-quality-plugin.js"
 
 export const VideoPlayer = (props) => {
   const videoRef = useRef(null);
   const playerRef = useRef(null);
   const { options, onReady } = props;
-
-  useEffect(() => {
-    //Register Custom Chapter Plugin
-    videojs.registerPlugin("chapters", customChapterList);
-    //Register Custom Chapter Plugin
-    videojs.registerPlugin("customChaptersInSeekbar", customChaptersInSeekbar);
-    //Register Custom Playlist Plugin
-    videojs.registerPlugin("playlists", customPlaylist);
-    //Register Custom Playlist Popup Plugin
-    videojs.registerPlugin("playlistPopup", playlistPopup);
-    //Register Custom Video Quality Change Plugin
-    videojs.registerPlugin(
-      "customVideoQualityChanger",
-      customVideoQualityChanger
-    );
-    //Register Custom Language Support Plugin
-    videojs.registerPlugin(
-      "customLanguageSupport",
-      customLanguageSupport
-    );
-  }, []);
 
   useEffect(() => {
     // Make sure Video.js player is only initialized once
@@ -50,24 +29,25 @@ export const VideoPlayer = (props) => {
         videojs.log("player is ready");
         onReady && onReady(player);
       }));
-      
-      //Use Custom Chapter Plugin
-      player.chapters(player, playerRef, options.sources[0].chapters);
 
-      //Use Custom Chapter in Seekbar Plugin
-      player.customChaptersInSeekbar(player, options.sources[0].chapters);
+      if (!options.playlist) {
+        //Use Custom Chapter Plugin
+        player.customSelectChapterList(player, playerRef, options.sources[0].chapters);
 
-      //Use Custom Playlist Plugin
-      //player.playlists(player, playerRef, options.playlist);
+        //Use Custom Chapter in Seekbar Plugin
+        player.customChaptersInSeekbar(player, options.sources[0].chapters);
 
-      //Use Custom Playlist Popup Plugin
-      //player.playlistPopup(player, playerRef, options.playlist);
+        //Use Custom Video Quality Plugin
+        player.customVideoQualityChanger(playerRef, options.sources);
+      } else {
+        //Use Custom Playlist Plugin
+        player.customPlaylist(player, playerRef, options.playlist);
 
-      //Use Custom Video Quality Plugin
-      player.customVideoQualityChanger(player, playerRef, options.sources);
-
+        //Use Custom Playlist Popup Plugin
+        player.customPlaylistPopup(player, playerRef, options.playlist);
+      }
       //Use Custom Language Support Plugin
-      player.customLanguageSupport(playerRef)
+      player.customLanguageSupport(playerRef);
     } else {
       const player = playerRef.current;
 

@@ -1,6 +1,7 @@
+import videojs from 'video.js';
 import "videojs-playlist";
 
-export default function customPlaylist(player, playerRef, list) {
+videojs.registerPlugin('customPlaylist', function(player, playerRef, list) {
   // Add playlist functionality
   player.playlist(list);
 
@@ -23,7 +24,7 @@ export default function customPlaylist(player, playerRef, list) {
 
     //This is for chapter select box plugin
     if (list[selectedIndex].sources[0].chapters) {
-      player.chapters(
+      player.customSelectChapterList(
         player,
         playerRef,
         list[selectedIndex].sources[0].chapters
@@ -35,4 +36,4 @@ export default function customPlaylist(player, playerRef, list) {
 
   selectBoxContainer.appendChild(selectBox);
   playerRef.current.controlBar.el().appendChild(selectBoxContainer);
-}
+});

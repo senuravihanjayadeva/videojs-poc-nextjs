@@ -1,8 +1,7 @@
+import videojs from 'video.js';
 import "video.js/dist/video-js.css";
 
-export default function customChaptersInSeekbar(player, chaptersArray) {
-  // Query all elements with the class "chapter-marker" within the container
-
+videojs.registerPlugin('customChaptersInSeekbar', function(player, chaptersArray) {
   // Initialize the chapters manually
   const chapterMarkers = chaptersArray.map((chapter) => {
     return {
@@ -40,4 +39,4 @@ export default function customChaptersInSeekbar(player, chaptersArray) {
       seekBar.appendChild(marker);
     });
   });
-}
+});
