@@ -2,7 +2,8 @@ import videojs from 'video.js';
 import "videojs-playlist";
 import "./playlist.css";
 
-videojs.registerPlugin('customPlaylist', function(player, playerRef, list) {
+videojs.registerPlugin('customPlaylist', function(list) {
+  const player = this;
   // Add playlist functionality
   player.playlist(list);
 
@@ -26,15 +27,13 @@ videojs.registerPlugin('customPlaylist', function(player, playerRef, list) {
     //This is for chapter select box plugin
     if (list[selectedIndex].sources[0].chapters) {
       player.customSelectChapterList(
-        player,
-        playerRef,
         list[selectedIndex].sources[0].chapters
       );
     }
 
-    playerRef.current.playlist.currentItem(selectedIndex);
+    player.playlist.currentItem(selectedIndex);
   };
 
   selectBoxContainer.appendChild(selectBox);
-  playerRef.current.controlBar.el().appendChild(selectBoxContainer);
+  player.controlBar.el().appendChild(selectBoxContainer);
 });

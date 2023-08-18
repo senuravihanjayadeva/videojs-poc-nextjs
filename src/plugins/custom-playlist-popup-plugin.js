@@ -1,7 +1,8 @@
 import videojs from 'video.js';
 import "./playlist.css";
 
-videojs.registerPlugin('customPlaylistPopup', function(player, playerRef, list) {
+videojs.registerPlugin('customPlaylistPopup', function(list) {
+   const player = this;
    // Adding button to the control bar
    var myButton = player.controlBar.addChild("button", {}, 0);
 
@@ -29,11 +30,11 @@ videojs.registerPlugin('customPlaylistPopup', function(player, playerRef, list) 
        
        //This is for chapter select box plugin
        if (item.sources[0].chapters) {
-         player.customSelectChapterList(player, playerRef, item.sources[0].chapters);
+         player.customSelectChapterList(item.sources[0].chapters);
        }
        //End of This is for chapter select box plugin
  
-       playerRef.current.playlist.currentItem(index);
+       player.playlist.currentItem(index);
        popup.remove();
        return false;
      };

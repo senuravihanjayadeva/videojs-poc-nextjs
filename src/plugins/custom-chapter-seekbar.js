@@ -2,7 +2,8 @@ import videojs from 'video.js';
 import "video.js/dist/video-js.css";
 import "./custom-chapter-seekbar.css";
 
-videojs.registerPlugin('customChaptersInSeekbar', function(player, chaptersArray) {
+videojs.registerPlugin('customChaptersInSeekbar', function(chaptersArray) {
+  const player = this; 
   // Initialize the chapters manually
   const chapterMarkers = chaptersArray.map((chapter) => {
     return {
@@ -11,7 +12,6 @@ videojs.registerPlugin('customChaptersInSeekbar', function(player, chaptersArray
     };
   });
 
-  // Add chapter markers and tooltips to the seek bar
   // Add chapter markers and tooltips to the seek bar
   const progressControl = player.controlBar.progressControl;
   const seekBar = progressControl.seekBar.el();

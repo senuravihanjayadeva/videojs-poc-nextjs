@@ -1,7 +1,8 @@
 import videojs from 'video.js';
 import "./custom-chapter-plugin.css";
 
-videojs.registerPlugin('customSelectChapterList', function(player, playerRef, chaptersArray) {
+videojs.registerPlugin('customSelectChapterList', function(chaptersArray) {
+  const player = this;
   let prevSelectBoxContainer = document.getElementById(
     "custom-select-container-playlist"
   );
@@ -46,5 +47,5 @@ videojs.registerPlugin('customSelectChapterList', function(player, playerRef, ch
   };
 
   selectBoxContainer.appendChild(selectBox);
-  playerRef.current.controlBar.el().appendChild(selectBoxContainer);
+  player.controlBar.el().appendChild(selectBoxContainer);
 });

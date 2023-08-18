@@ -155,7 +155,7 @@ export default function Home() {
 
   return (
     <div style={{ padding: "5% 10%" }}>
-      <h3>Demo App - CloudFlicks</h3>
+      <h1>Demo App - CloudFlicks</h1>
       <hr />
       <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} />
     </div>

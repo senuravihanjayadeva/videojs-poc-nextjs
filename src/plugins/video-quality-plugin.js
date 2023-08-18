@@ -1,6 +1,7 @@
 import videojs from 'video.js';
 
-videojs.registerPlugin('customVideoQualityChanger', function(playerRef, sourceList) {
+videojs.registerPlugin('customVideoQualityChanger', function(sourceList) {
+  const player = this;
   const selectBoxContainer = document.createElement("div");
   selectBoxContainer.classList.add("custom-select-container");
   const selectBox = document.createElement("select");
@@ -20,5 +21,5 @@ videojs.registerPlugin('customVideoQualityChanger', function(playerRef, sourceLi
   };
 
   selectBoxContainer.appendChild(selectBox);
-  playerRef.current.controlBar.el().appendChild(selectBoxContainer);
+  player.controlBar.el().appendChild(selectBoxContainer);
 });

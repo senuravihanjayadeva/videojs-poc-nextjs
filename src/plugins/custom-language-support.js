@@ -1,6 +1,7 @@
 import videojs from "video.js";
 
-videojs.registerPlugin('customLanguageSupport', function(playerRef) {
+videojs.registerPlugin('customLanguageSupport', function() {
+  const player = this;
   videojs.addLanguage("es", {
     Playlist: "Playlist",
     Play: "Reproducción",
@@ -209,5 +210,5 @@ videojs.registerPlugin('customLanguageSupport', function(playerRef) {
   };
 
   selectBoxContainer.appendChild(selectBox);
-  playerRef.current.controlBar.el().appendChild(selectBoxContainer);
+  player.controlBar.el().appendChild(selectBoxContainer);
 });
