@@ -8,6 +8,7 @@ import "../plugins/custom-playlist-popup-plugin.js";
 import "../plugins/custom-chapter-seekbar.js";
 import "../plugins/custom-language-support.js";
 import "../plugins/video-quality-plugin.js";
+import "../plugins/custom-annotation-plugin.js";
 
 export const VideoPlayer = (props) => {
   const videoRef = useRef(null);
@@ -46,6 +47,8 @@ export const VideoPlayer = (props) => {
       }
       //Use Custom Language Support Plugin
       player.customLanguageSupport();
+
+      player.customAnnotation()
     } else {
       const player = playerRef.current;
 
