@@ -1,12 +1,10 @@
 import React, { useRef, useEffect } from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
+
 import "../plugins/custom-chapter-plugin.js";
-import "../plugins/custom-chapter-plugin.css";
 import "../plugins/custom-playlist-plugin.js";
 import "../plugins/custom-playlist-popup-plugin.js";
-import "../plugins/playlist.css";
-import "../plugins/custom-chapter-seekbar.css";
 import "../plugins/custom-chapter-seekbar.js";
 import "../plugins/custom-language-support.js";
 import "../plugins/video-quality-plugin.js"

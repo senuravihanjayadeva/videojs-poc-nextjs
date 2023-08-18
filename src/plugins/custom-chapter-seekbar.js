@@ -1,5 +1,6 @@
 import videojs from 'video.js';
 import "video.js/dist/video-js.css";
+import "./custom-chapter-seekbar.css";
 
 videojs.registerPlugin('customChaptersInSeekbar', function(player, chaptersArray) {
   // Initialize the chapters manually

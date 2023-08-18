@@ -1,5 +1,6 @@
 import videojs from 'video.js';
 import "videojs-playlist";
+import "./playlist.css";
 
 videojs.registerPlugin('customPlaylist', function(player, playerRef, list) {
   // Add playlist functionality

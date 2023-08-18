@@ -1,4 +1,5 @@
 import videojs from 'video.js';
+import "./playlist.css";
 
 videojs.registerPlugin('customPlaylistPopup', function(player, playerRef, list) {
    // Adding button to the control bar

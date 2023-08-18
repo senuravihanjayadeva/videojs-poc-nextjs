@@ -1,4 +1,5 @@
 import videojs from 'video.js';
+import "./custom-chapter-plugin.css";
 
 videojs.registerPlugin('customSelectChapterList', function(player, playerRef, chaptersArray) {
   let prevSelectBoxContainer = document.getElementById(
