@@ -94,7 +94,7 @@ export default function Home() {
   ];
 
   const videoJsOptions = {
-    playlist: playlist,
+    //playlist: playlist,
     autoplay: true,
     controls: true,
     responsive: true,

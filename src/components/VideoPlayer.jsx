@@ -55,13 +55,13 @@ export const VideoPlayer = (props) => {
       player.chapters(player, playerRef, options.sources[0].chapters);
 
       //Use Custom Chapter in Seekbar Plugin
-      // player.customChaptersInSeekbar(player, options.sources[0].chapters);
+      player.customChaptersInSeekbar(player, options.sources[0].chapters);
 
       //Use Custom Playlist Plugin
-      player.playlists(player, playerRef, options.playlist);
+      //player.playlists(player, playerRef, options.playlist);
 
       //Use Custom Playlist Popup Plugin
-      player.playlistPopup(player, playerRef, options.playlist);
+      //player.playlistPopup(player, playerRef, options.playlist);
 
       //Use Custom Video Quality Plugin
       player.customVideoQualityChanger(player, playerRef, options.sources);
