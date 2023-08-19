@@ -15,8 +15,6 @@ videojs.registerPlugin('customVideoQualityChanger', function(sourceList) {
 
   selectBox.onchange = function () {
     const source = this.value;
-    const player = playerRef.current;
-    console.log(source);
     player.src(source);
   };
 

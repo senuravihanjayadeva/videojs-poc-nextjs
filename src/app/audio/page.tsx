@@ -1,7 +1,7 @@
-"use client"
+"use client";
 import Features from "@/components/Features";
 import VideoPlayer from "@/components/VideoPlayer";
-import React,{useRef} from "react";
+import React, { useRef } from "react";
 
 export default function Audio() {
   const playerRef = useRef(null);
@@ -36,7 +36,7 @@ export default function Audio() {
     ],
   };
 
-  const handlePlayerReady = (player : any) => {
+  const handlePlayerReady = (player: any) => {
     playerRef.current = player;
 
     // You can handle player events here, for example:
@@ -51,11 +51,9 @@ export default function Audio() {
 
   return (
     <div style={{ padding: "5% 10%" }}>
-      <h3 className="text-3xl font-bold">Demo App - CloudFlicks</h3>
-      <hr />
-      <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} />
-      <br/>
-      <Features/>
+      <Features>
+        <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} />
+      </Features>
     </div>
   );
 }

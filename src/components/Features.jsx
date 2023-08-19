@@ -8,15 +8,18 @@ const pendingItems = [
   "Clips",
   "Concept Check (Internal and External)",
 ];
-function Features() {
+function Features(props) {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div>
+      <h1 className="text-3xl font-bold">Demo App - CloudFlicks</h1>
+      {props.children}
+      <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="max-w-md p-6 bg-white rounded-lg shadow-md">
         <h1 className="text-2xl font-semibold mb-4">Features List</h1>
 
         <div className="mb-6">
           <h3 className="text-lg font-semibold mb-2 text-green-600">
-            Completed
+            Completed ( Click on the list option to check)
           </h3>
           <li>
             <Link href="/">Play-Pause</Link>
@@ -67,6 +70,8 @@ function Features() {
         </div>
       </div>
     </div>
+    </div>
+
   );
 }
 

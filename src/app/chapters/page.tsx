@@ -67,11 +67,9 @@ export default function Home() {
 
   return (
     <div style={{ padding: "5% 10%" }}>
-      <h1 className="text-3xl font-bold">Demo App - CloudFlicks</h1>
-      <hr />
-      <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} />
-      <br />
-      <Features/>
+      <Features>
+        <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} />
+      </Features>
     </div>
   );
 }
