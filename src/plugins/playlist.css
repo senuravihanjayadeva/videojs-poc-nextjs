@@ -36,3 +36,7 @@
 .custom-col:hover {
   background-color: aqua;
 }
+
+.playlist-button .vjs-icon-chapters {
+  font-size: large; /* Adjust the font size to your preference */
+}

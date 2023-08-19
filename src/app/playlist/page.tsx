@@ -84,7 +84,7 @@ export default function Playlist() {
     {
       sources: [
         {
-          src: "http://media.w3.org/2010/05/bunny/movie.mp4",
+          src: "https://firebasestorage.googleapis.com/v0/b/sri-lanka-airlines-storage.appspot.com/o/sample720.mp4?alt=media&token=50b250ab-3845-4321-94d1-49987a4d706b",
           type: "video/mp4",
         },
       ],
