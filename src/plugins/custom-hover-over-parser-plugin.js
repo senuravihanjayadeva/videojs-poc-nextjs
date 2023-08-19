@@ -13,36 +13,25 @@ videojs.registerPlugin("customHoverOverParser", function (hoverParsers) {
     parentContainer.style.width = `${element.pw}%`;
     parentContainer.style.height = `${element.ph}%`;
     parentContainer.style.backgroundColor = "transparent";
-    parentContainer.style.display = "block"; // Hide parent container initially
-
-    // Create modal container
-    const modalContainer = document.createElement("div");
-    modalContainer.className = "modal-hover-container";
-    modalContainer.style.position = "absolute";
-    modalContainer.style.top = `${element.cy}%`; // Adjust the y-coordinate
-    modalContainer.style.left = `${element.cx}%`; // Adjust the x-coordinate
-    modalContainer.style.width = `${element.cw}%`;
-    modalContainer.style.height = `${element.ch}`;
-    modalContainer.style.backgroundColor = "transparent";
-    modalContainer.style.display = "block"; // Hide modal initially
+    parentContainer.style.display = "none"; // Hide parent container initially
 
     // Create modal text container
     const modalTextContainer = document.createElement("div");
-    modalTextContainer.className = "modal-hover-text-container";
-    modalTextContainer.style.width = "100%";
-    modalTextContainer.style.height = "100%";
+    modalTextContainer.className = "modal-hover-container";
+    modalTextContainer.style.position = "absolute";
+    modalTextContainer.style.top = `${element.cy}%`; // Adjust the y-coordinate
+    modalTextContainer.style.left = `${element.cx}%`; // Adjust the x-coordinate
+    modalTextContainer.style.width = `${element.cw}%`;
+    modalTextContainer.style.height = `${element.ch}`;
     modalTextContainer.style.backgroundColor = "black";
     modalTextContainer.style.color = "white";
     modalTextContainer.style.padding = "5px";
     modalTextContainer.style.fontSize = "large";
-    modalTextContainer.style.display = "none"; // Hide modal text container initially
+    modalTextContainer.style.display = "none"; // Hide modal initially
     modalTextContainer.innerHTML = element.text;
 
-    // Append modal text container to modal container
-    modalContainer.appendChild(modalTextContainer);
-
     // Append modal container to parent container
-    parentContainer.appendChild(modalContainer);
+    parentContainer.appendChild(modalTextContainer);
 
     // Append parent container to player element
     player.el().appendChild(parentContainer);

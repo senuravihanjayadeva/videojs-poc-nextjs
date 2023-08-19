@@ -7,7 +7,7 @@ const completedItems = [
   "Play-Pause",
   "Mute-Unmute",
   "Full Screen",
-  "Annotation: /Annotation",
+  "Annotation: /annotation",
   "Speed Control",
   "Redition Control",
   "Multi Language Support",
