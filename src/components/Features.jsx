@@ -46,7 +46,7 @@ function Features() {
             <Link href="/audio">Audio Player</Link>
           </li>
           <li>
-            <Link href="/">Chaptering</Link>
+            <Link href="/chapters">Chaptering</Link>
           </li>
           <li>
             <Link href="/hoverover">Hover the credit line</Link>

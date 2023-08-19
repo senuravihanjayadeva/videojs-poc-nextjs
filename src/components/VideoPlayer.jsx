@@ -32,10 +32,10 @@ export const VideoPlayer = (props) => {
 
       if (!options.playlist) {
         //Use Custom Chapter Plugin
-        player.customSelectChapterList(options.sources[0].chapters);
+        options.sources[0].chapters && player.customSelectChapterList(options.sources[0].chapters);
 
         //Use Custom Chapter in Seekbar Plugin
-        player.customChaptersInSeekbar(options.sources[0].chapters);
+        options.sources[0].chapters && player.customChaptersInSeekbar(options.sources[0].chapters);
 
         //Use Custom Video Quality Plugin
         player.customVideoQualityChanger(options.sources);
