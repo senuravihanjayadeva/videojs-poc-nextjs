@@ -9,6 +9,7 @@ import "../plugins/custom-chapter-seekbar.js";
 import "../plugins/custom-language-support.js";
 import "../plugins/video-quality-plugin.js";
 import "../plugins/custom-annotation-plugin.js";
+import "../plugins/custom-hover-over-parser-plugin.js";
 
 export const VideoPlayer = (props) => {
   const videoRef = useRef(null);
@@ -49,7 +50,11 @@ export const VideoPlayer = (props) => {
       player.customLanguageSupport();
 
       //Use Custom Annotation Plugin
-      options.annotation && player.customAnnotation(options.annotation)
+      options.annotation && player.customAnnotation(options.annotation);
+
+      //Use Custom hover Over Parser Plugin
+      options.hoverParsers &&
+        player.customHoverOverParser(options.hoverParsers);
     } else {
       const player = playerRef.current;
 
