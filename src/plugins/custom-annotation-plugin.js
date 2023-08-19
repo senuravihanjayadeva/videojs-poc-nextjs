@@ -13,7 +13,7 @@ videojs.registerPlugin("customAnnotation", function (annotations) {
     modalContainer.style.left = `${element.x}%`; // Adjust the x-coordinate
     modalContainer.style.width = `${element.width}%`;
     modalContainer.style.height = `${element.height}%`;
-    modalContainer.style.border = "1px solid #ffffff";
+    modalContainer.style.border = "2px solid #ffffff";
     modalContainer.style.color = "white";
     modalContainer.style.display = "none"; // Hide modal initially
 
