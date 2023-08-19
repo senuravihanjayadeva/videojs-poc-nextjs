@@ -48,7 +48,8 @@ export const VideoPlayer = (props) => {
       //Use Custom Language Support Plugin
       player.customLanguageSupport();
 
-      player.customAnnotation()
+      //Use Custom Annotation Plugin
+      options.annotation && player.customAnnotation(options.annotation)
     } else {
       const player = playerRef.current;
 
