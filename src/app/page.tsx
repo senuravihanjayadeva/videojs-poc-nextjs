@@ -6,7 +6,27 @@ import VideoPlayer from "../components/VideoPlayer"
 export default function Home() {
   const playerRef = useRef(null);
 
+  const annotation = [
+    {
+      x: "7",
+      y: "47",
+      height: "35",
+      width: "30",
+      starttime: "3",
+      endtime: "15",
+    },
+    {
+      x: "41",
+      y: "46",
+      height: "36",
+      width: "48",
+      starttime: "5",
+      endtime: "15",
+    },
+  ];
+
   const videoJsOptions = {
+    annotation: annotation,
     autoplay: true,
     controls: true,
     responsive: true,
