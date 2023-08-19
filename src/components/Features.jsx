@@ -12,7 +12,9 @@ function Features(props) {
   return (
     <div>
       <h1 className="text-3xl font-bold">Demo App - CloudFlicks</h1>
+      <br/>
       {props.children}
+      <br/>
       <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="max-w-md p-6 bg-white rounded-lg shadow-md">
         <h1 className="text-2xl font-semibold mb-4">Features List</h1>
