@@ -1,7 +1,30 @@
-"use client"
+"use client";
 import Image from "next/image";
-import React,{useRef} from "react";
-import VideoPlayer from "../components/VideoPlayer"
+import React, { useRef } from "react";
+import VideoPlayer from "../components/VideoPlayer";
+
+const completedItems = [
+  "Play/Pause",
+  "Mute/Unmute",
+  "Full Screen",
+  "Annotation",
+  "Speed Control",
+  "Redition Control",
+  "Multi Language Support",
+  "Playlist",
+  "Audio Player",
+  "Chaptering",
+];
+
+const pendingItems = [
+  "Frame by Frame",
+  "Setting",
+  "Hover the credit line",
+  "In Screen Navigation",
+  "Timestamp",
+  "Clips",
+  "Concept Check (Internal and External)",
+];
 
 export default function Home() {
   const playerRef = useRef(null);
@@ -72,7 +95,7 @@ export default function Home() {
     ],
   };
 
-  const handlePlayerReady = (player : any) => {
+  const handlePlayerReady = (player: any) => {
     playerRef.current = player;
 
     // You can handle player events here, for example:
@@ -90,6 +113,38 @@ export default function Home() {
       <h1 className="text-3xl font-bold">Demo App - CloudFlicks</h1>
       <hr />
       <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} />
+      <br />
+      <div className="flex justify-center items-center min-h-screen bg-gray-100">
+        <div className="max-w-md p-6 bg-white rounded-lg shadow-md">
+          <h1 className="text-2xl font-semibold mb-4">Features List</h1>
+
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold mb-2 text-green-600">
+              Completed
+            </h3>
+            <ul>
+              {completedItems.map((item, index) => (
+                <li key={index} className="mb-2">
+                  <span className="font-semibold">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-orange-600">
+              Pending
+            </h3>
+            <ul>
+              {pendingItems.map((item, index) => (
+                <li key={index} className="mb-2">
+                  <span className="font-semibold">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
