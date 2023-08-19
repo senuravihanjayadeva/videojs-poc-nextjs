@@ -16,4 +16,7 @@
   color: #ffffff;
 }
 
+.custom-select-container select option{
+  background-color: rgb(109, 110, 111);
+}
 /* You can adjust the styles as needed */
