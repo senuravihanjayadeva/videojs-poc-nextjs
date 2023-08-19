@@ -4,22 +4,22 @@ import React, { useRef } from "react";
 import VideoPlayer from "../components/VideoPlayer";
 
 const completedItems = [
-  "Play/Pause",
-  "Mute/Unmute",
+  "Play-Pause",
+  "Mute-Unmute",
   "Full Screen",
-  "Annotation",
+  "Annotation: /Annotation",
   "Speed Control",
   "Redition Control",
   "Multi Language Support",
-  "Playlist",
-  "Audio Player",
+  "Playlist: /playlist",
+  "Audio Player: /audio",
   "Chaptering",
+  "Hover the credit line: /hoverover",
 ];
 
 const pendingItems = [
   "Frame by Frame",
   "Setting",
-  "Hover the credit line",
   "In Screen Navigation",
   "Timestamp",
   "Clips",
