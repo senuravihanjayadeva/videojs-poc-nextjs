@@ -12,6 +12,7 @@ import "../plugins/custom-annotation-plugin.js";
 import "../plugins/custom-hover-over-parser-plugin.js";
 import "../plugins/custom-in-screen-navigation-plugin.js";
 import "../plugins/custom-external-concept-check-plugin.js";
+import "../plugins/custom-timestamp-plugin";
 
 export const VideoPlayer = (props) => {
   const videoRef = useRef(null);
@@ -65,7 +66,11 @@ export const VideoPlayer = (props) => {
         options.sources[0].chapters &&
         player.customInScreenNavigation(options.sources[0].chapters);
 
+      //Use custom External Concept Check Plugin
       options.externalConceptCheck && player.customExternalConceptCheck();
+
+      //Use custom Timestamp Plugin
+      options.timestamps && player.customTimestamp(options.timestamps);
     } else {
       const player = playerRef.current;
 

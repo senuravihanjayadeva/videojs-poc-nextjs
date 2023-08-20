@@ -3,7 +3,6 @@ import Link from "next/link";
 const pendingItems = [
   "Frame by Frame",
   "Setting",
-  "Timestamp",
   "Clips",
   "Concept Check (Internal)",
 ];
@@ -57,6 +56,9 @@ function Features(props) {
             </li>
             <li>
               <Link href="/screennavigation">In Screen Navigation</Link>
+            </li>
+            <li>
+              <Link href="/timestamp">Timestamp</Link>
             </li>
             <li>
               <Link href="/externalconceptcheck">
