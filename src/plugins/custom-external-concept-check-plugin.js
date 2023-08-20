@@ -1,7 +1,6 @@
 import videojs from "video.js";
-import "./custom-annotation.css";
 
-videojs.registerPlugin("customExternalConceptCheck", function () {
+videojs.registerPlugin("customExternalConceptCheck", function (questions) {
   const player = this;
 
   // Functiont to create a box for answers
@@ -13,12 +12,12 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
     modalContainer.className = "modal-external-concept-check-container";
     modalContainer.id = "modal-external-concept-check-container";
     modalContainer.style.position = "absolute";
-    modalContainer.style.top = `10%`; // Adjust the y-coordinate
-    modalContainer.style.left = `50%`; // Adjust the x-coordinate
+    modalContainer.style.top = `5%`; // Adjust the y-coordinate
+    modalContainer.style.right = `5%`; // Adjust the x-coordinate
     modalContainer.style.border = "2px solid #ffffff";
     modalContainer.style.color = "white";
-    modalContainer.style.backgroundColor = "black";
-    modalContainer.style.padding = "2% 5%";
+    modalContainer.style.backgroundColor = "#474646";
+    modalContainer.style.padding = "1% 2%";
     modalContainer.style.display = "block"; // Hide modal initially
 
     let isClosed = false;
@@ -26,8 +25,8 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
     const closeButton = document.createElement("button");
     closeButton.className = "modal-external-concept-check-close-button";
     closeButton.style.position = "absolute";
-    closeButton.style.top = `5%`; // Adjust the y-coordinate
-    closeButton.style.right = `5%`; // Adjust the x-coordinate
+    closeButton.style.top = `1%`; // Adjust the y-coordinate
+    closeButton.style.right = `1%`; // Adjust the x-coordinate
     // Add Video.js close icon
     closeButton.innerHTML = '<span class="vjs-icon-cancel"></span>';
     closeButton.addEventListener("click", () => {
@@ -43,8 +42,8 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
     const pElement = document.createElement("p");
     pElement.textContent = item.question;
     pElement.style.fontSize = "large";
-    pElement.style.marginBottom = "5%";
-    pElement.style.marginTop = "15%";
+    pElement.style.marginBottom = "3%";
+    pElement.style.marginTop = "8%";
 
     // Create radio buttons and labels
     const radioContainer = document.createElement("div");
@@ -54,7 +53,7 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
       const radioInput = document.createElement("input");
       radioInput.type = "radio";
       radioInput.id = answer.id;
-      radioInput.name = "fav_language";
+      radioInput.name = "answer";
       radioInput.value = answer.value;
       radioInput.style.margin = "10px 0px"
 
@@ -68,9 +67,8 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
       radioContainer.appendChild(document.createElement("br"));
       radioInput.addEventListener("change", () => {
         if (radioInput.checked) {
-          const selectedIndex = index;
           newStartTime = answer.starttime;
-          console.log("Selected index:", selectedIndex);
+          btnElement.style.display = "block"
         }
       });
     });
@@ -85,6 +83,7 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
     btnElement.style.padding = "5px"
     btnElement.style.margin = "5px 0px"
     btnElement.style.fontSize = "medium"
+    btnElement.style.display = "none"
     btnElement.onclick = () => {
       player.currentTime(newStartTime);
       player.play();
@@ -96,38 +95,13 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
     player.el().appendChild(modalContainer);
   }
 
-  // Define an array of pause time ranges (in seconds)
-  const pauseTimeRanges = [
-    {
-      start: 3,
-      end: 4,
-      question: "What is start with this question?",
-      answers: [
-        { id: "1", value: "HTML", label: "HTML", starttime: 10 },
-        { id: "2", value: "CSS", label: "CSS", starttime: 15 },
-        { id: "3", value: "JavaScript", label: "JavaScript", starttime: 20 },
-      ],
-    },
-    {
-      start: 20,
-      end: 21,
-      question: "What is car color",
-      answers: [
-        { id: "1", value: "Blue", label: "Blue", starttime: 30 },
-        { id: "2", value: "Red", label: "Red", starttime: 40 },
-        { id: "3", value: "Orange", label: "Orange", starttime: 60 },
-      ],
-    },
-    // Add more time ranges as needed
-  ];
-
   let activePauseIndex = -1; // Index of the currently active pause time range
 
   player.on("timeupdate", () => {
     const currentTime = Math.floor(player.currentTime());
 
     // Check if the current time is within any of the pause time ranges
-    const newPauseIndex = pauseTimeRanges.findIndex(
+    const newPauseIndex = questions.findIndex(
       (range) => currentTime >= range.start && currentTime < range.end
     );
 
@@ -143,7 +117,7 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
       // Pause the video and create new actions
       if (newPauseIndex !== -1) {
         player.pause();
-        createAnswer(pauseTimeRanges[newPauseIndex]);
+        createAnswer(questions[newPauseIndex]);
         activePauseIndex = newPauseIndex;
       } else {
         activePauseIndex = -1;

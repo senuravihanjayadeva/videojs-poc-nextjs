@@ -67,7 +67,7 @@ export const VideoPlayer = (props) => {
         player.customInScreenNavigation(options.sources[0].chapters);
 
       //Use custom External Concept Check Plugin
-      options.externalConceptCheck && player.customExternalConceptCheck();
+      options.externalConceptCheck && options.questions && player.customExternalConceptCheck(options.questions);
 
       //Use custom Timestamp Plugin
       options.timestamps && player.customTimestamp(options.timestamps);
