@@ -46,7 +46,7 @@ export const VideoPlayer = (props) => {
         player.customVideoQualityChanger(options.sources);
       } else {
         //Use Custom Playlist Plugin
-        player.customPlaylist(options.playlist);
+        // player.customPlaylist(options.playlist);
 
         //Use Custom Playlist Popup Plugin
         player.customPlaylistPopup(options.playlist);

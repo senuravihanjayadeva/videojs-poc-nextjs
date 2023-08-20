@@ -1,8 +1,16 @@
 import videojs from "video.js";
+import "videojs-playlist";
 import "./playlist.css";
 
 videojs.registerPlugin("customPlaylistPopup", function (list) {
   const player = this;
+
+  // Add playlist functionality
+  player.playlist(list);
+
+  // Load the playlist
+  player.playlist.currentItem(0); // Start playing the first video in the playlist
+
   // Adding button to the control bar
   var myButton = player.controlBar.addChild(
     "button",
@@ -32,12 +40,6 @@ videojs.registerPlugin("customPlaylistPopup", function (list) {
     // Append the paragraphs to the popup element
     divGrid.appendChild(paragraph);
     divGrid.onclick = () => {
-      //This is for chapter select box plugin
-      if (item.sources[0].chapters) {
-        player.customSelectChapterList(item.sources[0].chapters);
-      }
-      //End of This is for chapter select box plugin
-
       player.playlist.currentItem(index);
       popup.remove();
       return false;
