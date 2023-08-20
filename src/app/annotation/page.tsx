@@ -44,6 +44,11 @@ export default function Annotation() {
         quality: "360p",
       },
     ],
+    plugins: {
+      customAnnotation: {
+        annotation: annotation,
+      },
+    },
   };
 
   const handlePlayerReady = (player: any) => {

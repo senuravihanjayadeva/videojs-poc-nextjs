@@ -14,8 +14,8 @@ import "../plugins/custom-in-screen-navigation-plugin.js";
 import "../plugins/custom-external-concept-check-plugin.js";
 import "../plugins/custom-timestamp-plugin";
 
-import '../plugins/videojs.framebyframe.js'
-import '../plugins/videojs.framebyframe.css'
+import "../plugins/videojs.framebyframe.js";
+import "../plugins/videojs.framebyframe.css";
 
 export const VideoPlayer = (props) => {
   const videoRef = useRef(null);
@@ -57,9 +57,6 @@ export const VideoPlayer = (props) => {
       //Use Custom Language Support Plugin
       player.customLanguageSupport();
 
-      //Use Custom Annotation Plugin
-      options.annotation && player.customAnnotation(options.annotation);
-
       //Use Custom hover Over Parser Plugin
       options.hoverParsers &&
         player.customHoverOverParser(options.hoverParsers);
@@ -70,7 +67,9 @@ export const VideoPlayer = (props) => {
         player.customInScreenNavigation(options.sources[0].chapters);
 
       //Use custom External Concept Check Plugin
-      options.externalConceptCheck && options.questions && player.customExternalConceptCheck(options.questions);
+      options.externalConceptCheck &&
+        options.questions &&
+        player.customExternalConceptCheck(options.questions);
 
       //Use custom Timestamp Plugin
       options.timestamps && player.customTimestamp(options.timestamps);
