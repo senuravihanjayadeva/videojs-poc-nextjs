@@ -45,12 +45,14 @@ videojs.registerPlugin("customInScreenNavigation", function (chaptersArray) {
 
   // Setting the back button click function
   backButton.onclick = function () {
-    currentChaperIndex -= 1;
-    const selectedChapter = chapterMarkers[currentChaperIndex];
-    if (selectedChapter) {
-      player.currentTime(selectedChapter.time);
-      currentChaperLabel = currentChaperIndex + 1;
-      showChapterEl.innerHTML = `${currentChaperLabel} / ${chaptersArray.length}`;
+    if (currentChaperIndex !== 0) {
+      currentChaperIndex -= 1;
+      const selectedChapter = chapterMarkers[currentChaperIndex];
+      if (selectedChapter) {
+        player.currentTime(selectedChapter.time);
+        currentChaperLabel = currentChaperIndex + 1;
+        showChapterEl.innerHTML = `${currentChaperLabel} / ${chaptersArray.length}`;
+      }
     }
   };
 
@@ -67,17 +69,20 @@ videojs.registerPlugin("customInScreenNavigation", function (chaptersArray) {
 
   // Setting the next button click function
   nextButton.onclick = function () {
-    currentChaperIndex += 1;
-    const selectedChapter = chapterMarkers[currentChaperIndex];
-    if (selectedChapter) {
-      player.currentTime(selectedChapter.time);
-      currentChaperLabel = currentChaperIndex + 1;
-      showChapterEl.innerHTML = `${currentChaperLabel} / ${chaptersArray.length}`;
+    if (currentChaperIndex !== chapterMarkers.length) {
+      currentChaperIndex += 1;
+      const selectedChapter = chapterMarkers[currentChaperIndex];
+      if (selectedChapter) {
+        player.currentTime(selectedChapter.time);
+        currentChaperLabel = currentChaperIndex + 1;
+        showChapterEl.innerHTML = `${currentChaperLabel} / ${chaptersArray.length}`;
+      }
     }
   };
 
   // Chapter navigation logic
   player.on("timeupdate", () => {
+    nextButton.style.color = "absolute";
     const currentTime = player.currentTime();
     // Find the current chapter based on currentTime
     let currentChapter = null;
@@ -91,6 +96,7 @@ videojs.registerPlugin("customInScreenNavigation", function (chaptersArray) {
       function checkChapterIndex(chapter) {
         return chapter.text == currentChapter.text;
       }
+      currentChaperIndex = latestChapterIndex;
       currentChaperLabel = latestChapterIndex + 1;
       showChapterEl.innerHTML = `${currentChaperLabel} / ${chaptersArray.length}`;
     }
