@@ -1,11 +1,7 @@
 import Link from "next/link";
 
-const pendingItems = [
-  "Frame by Frame",
-  "Setting",
-  "Clips",
-  "Concept Check (Internal)",
-];
+const pendingItems = ["Setting", "Clips", "Concept Check (Internal)"];
+
 function Features(props) {
   return (
     <div>
@@ -64,6 +60,9 @@ function Features(props) {
               <Link href="/externalconceptcheck">
                 External ( Have some Improvements to do)
               </Link>
+            </li>
+            <li>
+              <Link href="/framebyframe">Frame By Frame</Link>
             </li>
           </div>
 
