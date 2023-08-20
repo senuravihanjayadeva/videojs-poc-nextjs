@@ -15,9 +15,9 @@ export default function FrameByFrame() {
     fluid: true,
     sources: [
       {
-        src: "https://firebasestorage.googleapis.com/v0/b/videos-f6df6.appspot.com/o/sample360.mp4?alt=media&token=f84ab19c-5d7f-49c3-9597-75b3c8b59b71",
+        src: "https://firebasestorage.googleapis.com/v0/b/videos-f6df6.appspot.com/o/framebyframe.mp4?alt=media&token=304b6b23-87eb-4a5b-84c8-6b6a9b930897",
         type: "video/mp4",
-        quality: "360p",
+        quality: "480p",
       },
     ],
     plugins: {
