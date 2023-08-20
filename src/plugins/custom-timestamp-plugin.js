@@ -17,7 +17,7 @@ videojs.registerPlugin("customTimestamp", function (timestamps) {
       marker.id = `cue-points-marker-${index}`;
       marker.style.left = (pausePoints.starttime / duration) * 100 + "%";
       marker.style.position = "absolute";
-      marker.style.width = "5px";
+      marker.style.width = "3px";
       marker.style.height = "100%";
       marker.style.backgroundColor = "#ff5722" 
       marker.style.zIndex = "1"

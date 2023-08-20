@@ -39,10 +39,10 @@ body {
   align-items: center !important;
   min-width: 100% !important;
   touch-action: none !important;
-}
+} */
 
 .video-js .vjs-progress-control .vjs-progress-holder {
   height: 10px;
   margin: 0px !important;
-  bottom: 30%;
-} */
+  /* bottom: 30%; */
+}
