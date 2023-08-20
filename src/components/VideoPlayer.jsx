@@ -10,7 +10,8 @@ import "../plugins/custom-language-support.js";
 import "../plugins/video-quality-plugin.js";
 import "../plugins/custom-annotation-plugin.js";
 import "../plugins/custom-hover-over-parser-plugin.js";
-import "../plugins/custom-in-screen-navigation-plugin";
+import "../plugins/custom-in-screen-navigation-plugin.js";
+import "../plugins/custom-external-concept-check-plugin.js";
 
 export const VideoPlayer = (props) => {
   const videoRef = useRef(null);
@@ -62,6 +63,8 @@ export const VideoPlayer = (props) => {
       //Use custom In Screen Navigation Plugin
       options.screenNavigation && options.sources[0].chapters &&
         player.customInScreenNavigation(options.sources[0].chapters);
+
+      player.customExternalConceptCheck();
     } else {
       const player = playerRef.current;
 
