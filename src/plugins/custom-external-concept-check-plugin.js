@@ -73,19 +73,19 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
       end: 4,
       question: "What is start with j?",
       answers: [
-        { id: "1", value: "HTML", label: "HTML" },
-        { id: "2", value: "CSS", label: "CSS" },
-        { id: "3", value: "JavaScript", label: "JavaScript" },
+        { id: "1", value: "HTML", label: "HTML", starttime: 10 },
+        { id: "2", value: "CSS", label: "CSS", starttime: 15 },
+        { id: "3", value: "JavaScript", label: "JavaScript", starttime: 20 },
       ],
     },
     {
-      start: 10,
-      end: 11,
+      start: 20,
+      end: 21,
       question: "What is car color",
       answers: [
-        { id: "1", value: "Blue", label: "Blue" },
-        { id: "2", value: "Red", label: "Red" },
-        { id: "3", value: "Orange", label: "Orange" },
+        { id: "1", value: "Blue", label: "Blue", starttime: 30 },
+        { id: "2", value: "Red", label: "Red", starttime: 40 },
+        { id: "3", value: "Orange", label: "Orange", starttime: 60 },
       ],
     },
     // Add more time ranges as needed
