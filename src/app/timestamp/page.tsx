@@ -9,19 +9,19 @@ export default function Annotation() {
   // Define an array of pause time ranges (in seconds)
   const timestamps = [
     {
-      starttime: 3,
-    },
-    {
-      starttime: 5,
-    },
-    {
       starttime: 10,
     },
     {
-      starttime: 20,
+      starttime: 30,
     },
     {
-      starttime: 30,
+      starttime: 70,
+    },
+    {
+      starttime: 100,
+    },
+    {
+      starttime: 120,
     },
   ];
 
