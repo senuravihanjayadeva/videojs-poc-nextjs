@@ -1,6 +1,6 @@
 import videojs from "video.js";
 
-videojs.registerPlugin('customLanguageSupport', function() {
+videojs.registerPlugin("customLanguageSupport", function () {
   const player = this;
   videojs.addLanguage("es", {
     Playlist: "Playlist",
@@ -191,14 +191,28 @@ videojs.registerPlugin('customLanguageSupport', function() {
     "Text Background": "خلفية النص",
     "Caption Area Background": "خلفية منطقة التسمية التوضيحية",
   });
-  const selectBoxContainer = document.createElement("div");
-  selectBoxContainer.classList.add("custom-select-container");
+  let myButton = player.controlBar.addChild(
+    "button",
+    {},
+    player.controlBar.children().length - 1
+  );
+
+  // Create our button's DOM Component
+  let selectBoxContainer = myButton.el();
+  selectBoxContainer.classList.add("custom-select-language");
+  selectBoxContainer.classList.add("vjs-button");
+
   const selectBox = document.createElement("select");
+  // styles for the select
+  selectBox.style.backgroundColor = "transparent";
+  selectBox.style.cursor = "pointer";
 
   const list = ["en", "ar", "pt", "es"];
 
   list.forEach((option) => {
     const opt = document.createElement("option");
+    // styles for the option
+    opt.style.backgroundColor = "rgb(109, 110, 111)";
     opt.value = option;
     opt.text = option;
     selectBox.appendChild(opt);
@@ -210,5 +224,4 @@ videojs.registerPlugin('customLanguageSupport', function() {
   };
 
   selectBoxContainer.appendChild(selectBox);
-  player.controlBar.el().appendChild(selectBoxContainer);
 });
