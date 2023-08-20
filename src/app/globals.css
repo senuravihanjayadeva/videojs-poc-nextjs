@@ -31,11 +31,11 @@ body {
 }
 
 /* Target the progress bar container */
-.video-js .vjs-progress-control {
+/* .video-js .vjs-progress-control {
   position: absolute !important;
   cursor: pointer !important;
   flex: auto;
-  display:block !important;
+  display: block !important;
   align-items: center !important;
   min-width: 100% !important;
   touch-action: none !important;
@@ -45,4 +45,4 @@ body {
   height: 10px;
   margin: 0px !important;
   bottom: 30%;
-}
+} */
