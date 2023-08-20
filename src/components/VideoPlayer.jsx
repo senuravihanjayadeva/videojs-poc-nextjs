@@ -10,6 +10,7 @@ import "../plugins/custom-language-support.js";
 import "../plugins/video-quality-plugin.js";
 import "../plugins/custom-annotation-plugin.js";
 import "../plugins/custom-hover-over-parser-plugin.js";
+import "../plugins/custom-in-screen-navigation-plugin";
 
 export const VideoPlayer = (props) => {
   const videoRef = useRef(null);
@@ -32,10 +33,12 @@ export const VideoPlayer = (props) => {
 
       if (!options.playlist) {
         //Use Custom Chapter Plugin
-        options.sources[0].chapters && player.customSelectChapterList(options.sources[0].chapters);
+        options.sources[0].chapters &&
+          player.customSelectChapterList(options.sources[0].chapters);
 
         //Use Custom Chapter in Seekbar Plugin
-        options.sources[0].chapters && player.customChaptersInSeekbar(options.sources[0].chapters);
+        options.sources[0].chapters &&
+          player.customChaptersInSeekbar(options.sources[0].chapters);
 
         //Use Custom Video Quality Plugin
         player.customVideoQualityChanger(options.sources);
@@ -55,6 +58,9 @@ export const VideoPlayer = (props) => {
       //Use Custom hover Over Parser Plugin
       options.hoverParsers &&
         player.customHoverOverParser(options.hoverParsers);
+
+      options.sources[0].chapters &&
+        player.customInScreenNavigation(options.sources[0].chapters);
     } else {
       const player = playerRef.current;
 
