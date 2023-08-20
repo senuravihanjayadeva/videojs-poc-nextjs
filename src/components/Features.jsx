@@ -3,7 +3,6 @@ import Link from "next/link";
 const pendingItems = [
   "Frame by Frame",
   "Setting",
-  "In Screen Navigation",
   "Timestamp",
   "Clips",
   "Concept Check (Internal and External)",
@@ -55,6 +54,9 @@ function Features(props) {
           </li>
           <li>
             <Link href="/hoverover">Hover the credit line</Link>
+          </li>
+          <li>
+            <Link href="/screennavigation">In Screen Navigation</Link>
           </li>
         </div>
 

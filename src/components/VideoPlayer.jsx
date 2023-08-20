@@ -59,7 +59,8 @@ export const VideoPlayer = (props) => {
       options.hoverParsers &&
         player.customHoverOverParser(options.hoverParsers);
 
-      options.sources[0].chapters &&
+      //Use custom In Screen Navigation Plugin
+      options.screenNavigation && options.sources[0].chapters &&
         player.customInScreenNavigation(options.sources[0].chapters);
     } else {
       const player = playerRef.current;
