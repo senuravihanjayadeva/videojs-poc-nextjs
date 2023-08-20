@@ -6,7 +6,6 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
 
   // Functiont to create a box for answers
   function createAnswer(item) {
-
     let newStartTime = null;
 
     // Create a modal container
@@ -19,7 +18,7 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
     modalContainer.style.border = "2px solid #ffffff";
     modalContainer.style.color = "white";
     modalContainer.style.backgroundColor = "black";
-    modalContainer.style.padding = "15px";
+    modalContainer.style.padding = "2% 5%";
     modalContainer.style.display = "block"; // Hide modal initially
 
     let isClosed = false;
@@ -44,12 +43,12 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
     const pElement = document.createElement("p");
     pElement.textContent = item.question;
     pElement.style.fontSize = "large";
-    pElement.style.paddingBottom = "3px";
-    pElement.style.paddingTop = "3px";
+    pElement.style.marginBottom = "5%";
+    pElement.style.marginTop = "15%";
 
     // Create radio buttons and labels
     const radioContainer = document.createElement("div");
-    radioContainer.style.fontSize = "large";
+    radioContainer.style.fontSize = "medium";
 
     item.answers.forEach((answer, index) => {
       const radioInput = document.createElement("input");
@@ -57,9 +56,11 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
       radioInput.id = answer.id;
       radioInput.name = "fav_language";
       radioInput.value = answer.value;
+      radioInput.style.margin = "10px 0px"
 
       const label = document.createElement("label");
       label.textContent = answer.label;
+      label.style.margin = "10px 0px"
       label.setAttribute("for", answer.id);
 
       radioContainer.appendChild(radioInput);
@@ -68,7 +69,7 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
       radioInput.addEventListener("change", () => {
         if (radioInput.checked) {
           const selectedIndex = index;
-          newStartTime= answer.starttime;
+          newStartTime = answer.starttime;
           console.log("Selected index:", selectedIndex);
         }
       });
@@ -80,6 +81,10 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
 
     const btnElement = document.createElement("button");
     btnElement.textContent = "submit";
+    btnElement.style.border = "1px solid #fff"
+    btnElement.style.padding = "5px"
+    btnElement.style.margin = "5px 0px"
+    btnElement.style.fontSize = "medium"
     btnElement.onclick = () => {
       player.currentTime(newStartTime);
       player.play();
@@ -96,7 +101,7 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
     {
       start: 3,
       end: 4,
-      question: "What is start with j?",
+      question: "What is start with this question?",
       answers: [
         { id: "1", value: "HTML", label: "HTML", starttime: 10 },
         { id: "2", value: "CSS", label: "CSS", starttime: 15 },
@@ -117,7 +122,6 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
   ];
 
   let activePauseIndex = -1; // Index of the currently active pause time range
-  let isTriggered = false;
 
   player.on("timeupdate", () => {
     const currentTime = Math.floor(player.currentTime());
@@ -140,10 +144,8 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
       if (newPauseIndex !== -1) {
         player.pause();
         createAnswer(pauseTimeRanges[newPauseIndex]);
-        isTriggered = true;
         activePauseIndex = newPauseIndex;
       } else {
-        isTriggered = false;
         activePauseIndex = -1;
       }
     }
