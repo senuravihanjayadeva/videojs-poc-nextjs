@@ -5,7 +5,7 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
   const player = this;
 
   // Functiont to create a box for answers
-  function createAnswer() {
+  function createAnswer(item) {
     // Create a modal container
     const modalContainer = document.createElement("div");
     modalContainer.className = "modal-external-concept-check-container";
@@ -35,20 +35,14 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
     // Create answers within the modal
     // Create the <p> element
     const pElement = document.createElement("p");
-    pElement.textContent = "Please select your favorite Web language:";
+    pElement.textContent = item.question;
     pElement.style.fontSize = "large";
 
     // Create radio buttons and labels
-    const languages = [
-      { id: "html", value: "HTML", label: "HTML" },
-      { id: "css", value: "CSS", label: "CSS" },
-      { id: "javascript", value: "JavaScript", label: "JavaScript" },
-    ];
-
     const radioContainer = document.createElement("div");
     radioContainer.style.fontSize = "large";
 
-    languages.forEach((language) => {
+    item.answers.forEach((language) => {
       const radioInput = document.createElement("input");
       radioInput.type = "radio";
       radioInput.id = language.id;
@@ -74,8 +68,26 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
 
   // Define an array of pause time ranges (in seconds)
   const pauseTimeRanges = [
-    { start: 3, end: 4 },
-    { start: 10, end: 11 },
+    {
+      start: 3,
+      end: 4,
+      question: "What is start with j?",
+      answers: [
+        { id: "1", value: "HTML", label: "HTML" },
+        { id: "2", value: "CSS", label: "CSS" },
+        { id: "3", value: "JavaScript", label: "JavaScript" },
+      ],
+    },
+    {
+      start: 10,
+      end: 11,
+      question: "What is car color",
+      answers: [
+        { id: "1", value: "Blue", label: "Blue" },
+        { id: "2", value: "Red", label: "Red" },
+        { id: "3", value: "Orange", label: "Orange" },
+      ],
+    },
     // Add more time ranges as needed
   ];
 
@@ -102,7 +114,7 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
       // Pause the video and create new actions
       if (newPauseIndex !== -1) {
         player.pause();
-        createAnswer();
+        createAnswer(pauseTimeRanges[newPauseIndex]);
         isTriggered = true;
         activePauseIndex = newPauseIndex;
       } else {
