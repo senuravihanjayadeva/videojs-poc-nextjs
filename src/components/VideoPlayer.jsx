@@ -61,10 +61,11 @@ export const VideoPlayer = (props) => {
         player.customHoverOverParser(options.hoverParsers);
 
       //Use custom In Screen Navigation Plugin
-      options.screenNavigation && options.sources[0].chapters &&
+      options.screenNavigation &&
+        options.sources[0].chapters &&
         player.customInScreenNavigation(options.sources[0].chapters);
 
-      player.customExternalConceptCheck();
+      options.externalConceptCheck && player.customExternalConceptCheck();
     } else {
       const player = playerRef.current;
 
