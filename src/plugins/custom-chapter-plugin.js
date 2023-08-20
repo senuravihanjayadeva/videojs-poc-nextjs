@@ -9,11 +9,24 @@ videojs.registerPlugin('customSelectChapterList', function(chaptersArray) {
   if (prevSelectBoxContainer) {
     prevSelectBoxContainer.remove();
   }
-  const selectBoxContainer = document.createElement("div");
-  selectBoxContainer.id = "custom-select-container-playlist";
-  selectBoxContainer.classList.add("custom-select-container");
-  const selectBox = document.createElement("select");
 
+  let myButton = player.controlBar.addChild(
+    "button",
+    {},
+    player.controlBar.children().length
+  );
+  
+  // Create our button's DOM Component
+  let selectBoxContainer = myButton.el();
+  selectBoxContainer.style.marginRight = "4%"
+  selectBoxContainer.id = "custom-select-container-chapter";
+  selectBoxContainer.classList.add("vjs-button");
+  selectBoxContainer.classList.add("custom-select-chapter");
+
+
+  const selectBox = document.createElement("select");
+  selectBox.style.backgroundColor = "transparent";
+  selectBox.style.cursor = "pointer";
   // Initialize the chapters manually
   const chapterMarkers = chaptersArray.map((chapter) => {
     return {

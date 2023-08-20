@@ -31,7 +31,7 @@ body {
 }
 
 /* Target the progress bar container */
-/* .video-js .vjs-progress-control {
+.video-js .vjs-progress-control {
   position: absolute !important;
   cursor: pointer !important;
   flex: auto;
@@ -39,10 +39,14 @@ body {
   align-items: center !important;
   min-width: 100% !important;
   touch-action: none !important;
-} */
+  z-index: 0;
+}
 
+.vjs-button .vjs-icon-placeholder:before{
+ z-index: 2;
+}
 .video-js .vjs-progress-control .vjs-progress-holder {
   height: 10px;
   margin: 0px !important;
-  /* bottom: 30%; */
+  bottom: 30%;
 }
