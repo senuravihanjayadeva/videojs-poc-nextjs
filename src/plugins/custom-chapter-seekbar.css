@@ -1,14 +1,11 @@
 /* Style for chapter markers on the seek bar */
 .chapter-marker {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 5px;
+  height: 100%;
   background-color: #ff5722; /* Orange color */
-  border-radius: 50%;
   cursor: pointer;
   z-index: 1; /* Place markers above the progress bar */
-  transform: translate(-50%, -50%); /* Center the marker both horizontally and vertically */
-  transition: transform 0.2s, width 0.2s, height 0.2s, background-color 0.2s;
 }
 
 .chapter-marker:hover {
@@ -27,7 +24,6 @@
   background-color: #333;
   color: #fff;
   padding: 6px 10px;
-  border-radius: 4px;
   font-size: 14px;
   opacity: 0;
   pointer-events: none;
