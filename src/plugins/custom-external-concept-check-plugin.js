@@ -6,6 +6,9 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
 
   // Functiont to create a box for answers
   function createAnswer(item) {
+
+    let newStartTime = null;
+
     // Create a modal container
     const modalContainer = document.createElement("div");
     modalContainer.className = "modal-external-concept-check-container";
@@ -16,12 +19,16 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
     modalContainer.style.border = "2px solid #ffffff";
     modalContainer.style.color = "white";
     modalContainer.style.backgroundColor = "black";
+    modalContainer.style.padding = "15px";
     modalContainer.style.display = "block"; // Hide modal initially
 
     let isClosed = false;
     // Create a close button within the modal
     const closeButton = document.createElement("button");
     closeButton.className = "modal-external-concept-check-close-button";
+    closeButton.style.position = "absolute";
+    closeButton.style.top = `5%`; // Adjust the y-coordinate
+    closeButton.style.right = `5%`; // Adjust the x-coordinate
     // Add Video.js close icon
     closeButton.innerHTML = '<span class="vjs-icon-cancel"></span>';
     closeButton.addEventListener("click", () => {
@@ -37,30 +44,48 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
     const pElement = document.createElement("p");
     pElement.textContent = item.question;
     pElement.style.fontSize = "large";
+    pElement.style.paddingBottom = "3px";
+    pElement.style.paddingTop = "3px";
 
     // Create radio buttons and labels
     const radioContainer = document.createElement("div");
     radioContainer.style.fontSize = "large";
 
-    item.answers.forEach((language) => {
+    item.answers.forEach((answer, index) => {
       const radioInput = document.createElement("input");
       radioInput.type = "radio";
-      radioInput.id = language.id;
+      radioInput.id = answer.id;
       radioInput.name = "fav_language";
-      radioInput.value = language.value;
+      radioInput.value = answer.value;
 
       const label = document.createElement("label");
-      label.textContent = language.label;
-      label.setAttribute("for", language.id);
+      label.textContent = answer.label;
+      label.setAttribute("for", answer.id);
 
       radioContainer.appendChild(radioInput);
       radioContainer.appendChild(label);
       radioContainer.appendChild(document.createElement("br"));
+      radioInput.addEventListener("change", () => {
+        if (radioInput.checked) {
+          const selectedIndex = index;
+          newStartTime= answer.starttime;
+          console.log("Selected index:", selectedIndex);
+        }
+      });
     });
 
     // Append elements to the document body
     modalContainer.appendChild(pElement);
     modalContainer.appendChild(radioContainer);
+
+    const btnElement = document.createElement("button");
+    btnElement.textContent = "submit";
+    btnElement.onclick = () => {
+      player.currentTime(newStartTime);
+      player.play();
+    };
+
+    modalContainer.appendChild(btnElement);
 
     // Append modal container to player element
     player.el().appendChild(modalContainer);

@@ -23,7 +23,7 @@ export default function Home() {
     fluid: true,
     sources: [
       {
-        src: "https://firebasestorage.googleapis.com/v0/b/sri-lanka-airlines-storage.appspot.com/o/sample360.mp4?alt=media&token=7e4fb99e-0205-4042-90ff-080c0d091c42",
+        src: "http://media.w3.org/2010/05/video/movie_300.mp4",
         type: "video/mp4",
         quality: "360p",
       },
