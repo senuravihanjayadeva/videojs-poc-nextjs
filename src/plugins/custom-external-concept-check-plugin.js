@@ -72,28 +72,42 @@ videojs.registerPlugin("customExternalConceptCheck", function () {
     player.el().appendChild(modalContainer);
   }
 
-  // Define an array of timestamps (in seconds) to pause the video
-  let pausetime = 3; // Adjust these values as needed
-  let pauseEndtime = 4;
+  // Define an array of pause time ranges (in seconds)
+  const pauseTimeRanges = [
+    { start: 3, end: 4 },
+    { start: 10, end: 11 },
+    // Add more time ranges as needed
+  ];
+
+  let activePauseIndex = -1; // Index of the currently active pause time range
   let isTriggered = false;
 
   player.on("timeupdate", () => {
     const currentTime = Math.floor(player.currentTime());
-    if (!isTriggered) {
-      if (currentTime >= pausetime && currentTime < pauseEndtime) {
+
+    // Check if the current time is within any of the pause time ranges
+    const newPauseIndex = pauseTimeRanges.findIndex(
+      (range) => currentTime >= range.start && currentTime < range.end
+    );
+
+    if (newPauseIndex !== activePauseIndex) {
+      // Remove previous actions
+      let deleteAnswer = document.getElementById(
+        "modal-external-concept-check-container"
+      );
+      if (deleteAnswer) {
+        deleteAnswer.remove();
+      }
+
+      // Pause the video and create new actions
+      if (newPauseIndex !== -1) {
         player.pause();
         createAnswer();
         isTriggered = true;
-      }
-    } else {
-      if (currentTime < pausetime || currentTime > pausetime) {
-        let deleteAnswer = document.getElementById(
-          "modal-external-concept-check-container"
-        );
-        if (deleteAnswer) {
-          deleteAnswer.remove();
-          isTriggered = false;
-        }
+        activePauseIndex = newPauseIndex;
+      } else {
+        isTriggered = false;
+        activePauseIndex = -1;
       }
     }
   });
