@@ -1,43 +1,46 @@
-import videojs from 'video.js';
+import videojs from "video.js";
 import "video.js/dist/video-js.css";
 import "./custom-chapter-seekbar.css";
 
-videojs.registerPlugin('customChaptersInSeekbar', function(chaptersArray) {
-  const player = this; 
-  // Initialize the chapters manually
-  const chapterMarkers = chaptersArray.map((chapter) => {
-    return {
-      text: chapter.label,
-      time: chapter.time,
-    };
-  });
+videojs.registerPlugin("customChaptersInSeekbar", function (options) {
+  const player = this;
 
-  // Add chapter markers and tooltips to the seek bar
-  const progressControl = player.controlBar.progressControl;
-  const seekBar = progressControl.seekBar.el();
-
-  // Listen for the 'loadedmetadata' event to ensure the duration is available
-  player.on("loadedmetadata", function () {
-    const duration = player.duration(); // Total video duration in seconds
-
-    chapterMarkers.forEach((chapter,index) => {
-      const marker = document.createElement("div");
-      marker.classList.add("chapter-marker");
-      marker.id = `chapter-marker-${index}`
-      marker.style.left = (chapter.time / duration) * 100 + "%";
-
-      // Create tooltip for chapter label
-      const tooltip = document.createElement("div");
-      tooltip.classList.add("chapter-tooltip");
-      tooltip.textContent = chapter.text;
-
-      marker.onclick = () => {
-        player.currentTime(chapter.time);
+  player.ready(() => {
+    // Initialize the chapters manually
+    const chapterMarkers = options.chapters.map((chapter) => {
+      return {
+        text: chapter.label,
+        time: chapter.time,
       };
+    });
 
-      marker.appendChild(tooltip);
+    // Add chapter markers and tooltips to the seek bar
+    const progressControl = player.controlBar.progressControl;
+    const seekBar = progressControl.seekBar.el();
 
-      seekBar.appendChild(marker);
+    // Listen for the 'loadedmetadata' event to ensure the duration is available
+    player.on("loadedmetadata", function () {
+      const duration = player.duration(); // Total video duration in seconds
+
+      chapterMarkers.forEach((chapter, index) => {
+        const marker = document.createElement("div");
+        marker.classList.add("chapter-marker");
+        marker.id = `chapter-marker-${index}`;
+        marker.style.left = (chapter.time / duration) * 100 + "%";
+
+        // Create tooltip for chapter label
+        const tooltip = document.createElement("div");
+        tooltip.classList.add("chapter-tooltip");
+        tooltip.textContent = chapter.text;
+
+        marker.onclick = () => {
+          player.currentTime(chapter.time);
+        };
+
+        marker.appendChild(tooltip);
+
+        seekBar.appendChild(marker);
+      });
     });
   });
 });

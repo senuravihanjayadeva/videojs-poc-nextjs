@@ -25,31 +25,32 @@ export default function Chapters() {
         src: "https://firebasestorage.googleapis.com/v0/b/videos-f6df6.appspot.com/o/sample360.mp4?alt=media&token=f84ab19c-5d7f-49c3-9597-75b3c8b59b71",
         type: "video/mp4",
         quality: "360p",
-        chapters: [
-          { label: "Chapter 1", time: "0" },
-          { label: "Chapter 2", time: "20" },
-          { label: "Chapter 3", time: "40" },
-          { label: "Chapter 4", time: "60" },
-          { label: "Chapter 5", time: "90" },
-          { label: "Chapter 6", time: "110" },
-          { label: "Chapter 7", time: "140" },
-        ],
-      },
-      {
-        src: "https://firebasestorage.googleapis.com/v0/b/videos-f6df6.appspot.com/o/sample720.mp4?alt=media&token=e7dde705-9791-4002-abdf-ff87bd7c9e59",
-        type: "video/mp4",
-        quality: "720p",
-        chapters: [
-          { label: "Chapter 1", time: "0" },
-          { label: "Chapter 2", time: "20" },
-          { label: "Chapter 3", time: "40" },
-          { label: "Chapter 4", time: "60" },
-          { label: "Chapter 5", time: "90" },
-          { label: "Chapter 6", time: "110" },
-          { label: "Chapter 7", time: "140" },
-        ],
       },
     ],
+    plugins: {
+      customSelectChapterList: {
+        chapters: [
+          { label: "Chapter 1", time: "0" },
+          { label: "Chapter 2", time: "20" },
+          { label: "Chapter 3", time: "40" },
+          { label: "Chapter 4", time: "60" },
+          { label: "Chapter 5", time: "90" },
+          { label: "Chapter 6", time: "110" },
+          { label: "Chapter 7", time: "140" },
+        ],
+      },
+      customChaptersInSeekbar: {
+        chapters: [
+          { label: "Chapter 1", time: "0" },
+          { label: "Chapter 2", time: "20" },
+          { label: "Chapter 3", time: "40" },
+          { label: "Chapter 4", time: "60" },
+          { label: "Chapter 5", time: "90" },
+          { label: "Chapter 6", time: "110" },
+          { label: "Chapter 7", time: "140" },
+        ],
+      },
+    },
   };
 
   const handlePlayerReady = (player: any) => {
