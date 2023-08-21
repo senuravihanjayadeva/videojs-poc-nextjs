@@ -7,7 +7,7 @@ export default function FrameByFrame() {
   const playerRef = useRef(null);
 
   const videoJsOptions = {
-    autoplay: true,
+    autoplay: false,
     controls: true,
     responsive: true,
     playbackRates: [0.5, 1, 1.5, 2, 2.5, 3],
