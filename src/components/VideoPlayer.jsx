@@ -17,6 +17,8 @@ import "../plugins/videojs.framebyframe.js";
 import "../plugins/videojs.framebyframe.css";
 import "../plugins/custom-caption-plugin.js";
 import "../plugins/custom-audio-describe-plugin.js";
+import "../plugins/custom-internal-concept-check-plugin.js";
+import "../plugins/custom-internal-concept-check.css"
 
 export const VideoPlayer = (props) => {
   const videoRef = useRef(null);

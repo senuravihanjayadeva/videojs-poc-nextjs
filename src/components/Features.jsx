@@ -58,8 +58,11 @@ function Features(props) {
             </li>
             <li>
               <Link href="/externalconceptcheck">
-                External ( Have some Improvements to do)
+                External Concept Check( Have some Improvements to do)
               </Link>
+            </li>
+            <li>
+              <Link href="/internalconceptcheck">Internal Concept Check ( Have some Improvements to do)</Link>
             </li>
             <li>
               <Link href="/framebyframe">Frame By Frame</Link>

@@ -1,0 +1,10 @@
+.internal-answer-container{
+    background-color: transparent;
+}
+
+.internal-answer-container:hover{
+    background-color: transparent;
+    border: 4px solid #ffffff;
+    cursor: pointer;
+}
+
