@@ -14,7 +14,7 @@ export default function FrameByFrame() {
     fluid: true,
     sources: [
       {
-        src: "https://firebasestorage.googleapis.com/v0/b/videos-f6df6.appspot.com/o/framebyframe.mp4?alt=media&token=304b6b23-87eb-4a5b-84c8-6b6a9b930897",
+        src: "https://firebasestorage.googleapis.com/v0/b/sri-lanka-airlines-storage.appspot.com/o/videojs%2Fframebyframe.mp4?alt=media&token=58ca4a7a-e948-4078-9524-dd94f9129d41",
         type: "video/mp4",
         quality: "480p",
       },

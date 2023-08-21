@@ -70,7 +70,7 @@ let playlist = [
   {
     sources: [
       {
-        src: "https://firebasestorage.googleapis.com/v0/b/videos-f6df6.appspot.com/o/sample720.mp4?alt=media&token=e7dde705-9791-4002-abdf-ff87bd7c9e59",
+        src: "https://firebasestorage.googleapis.com/v0/b/sri-lanka-airlines-storage.appspot.com/o/videojs%2Fsample720p.mp4?alt=media&token=42e44c03-3ddf-4596-bc43-940fd26047fa",
         type: "video/mp4",
       },
     ],
