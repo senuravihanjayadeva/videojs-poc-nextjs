@@ -20,7 +20,7 @@ videojs.registerPlugin("customVideoQualityChanger", function (options) {
     selectBox.style.backgroundColor = "transparent";
     selectBox.style.cursor = "pointer";
 
-    options.sources.forEach((option) => {
+    options.sources && options.sources.forEach((option) => {
       const opt = document.createElement("option");
       // styles for the option
       opt.style.backgroundColor = "rgb(109, 110, 111)";
