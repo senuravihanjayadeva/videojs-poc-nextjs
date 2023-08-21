@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const pendingItems = ["Setting", "Concept Check (Internal)"];
+const pendingItems = ["Setting"];
 
 function Features(props) {
   return (
