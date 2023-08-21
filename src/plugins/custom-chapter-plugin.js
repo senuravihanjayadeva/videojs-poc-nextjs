@@ -48,6 +48,7 @@ videojs.registerPlugin("customSelectChapterList", function (options) {
       const opt = document.createElement("option");
       opt.value = option.value;
       opt.text = option.text;
+      opt.style.backgroundColor = "rgb(109, 110, 111)";
       selectBox.appendChild(opt);
     });
 
