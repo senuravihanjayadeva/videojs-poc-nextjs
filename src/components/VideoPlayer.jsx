@@ -48,10 +48,6 @@ export const VideoPlayer = (props) => {
       //Use Custom Language Support Plugin
       player.customLanguageSupport();
 
-      //Use Custom hover Over Parser Plugin
-      options.hoverParsers &&
-        player.customHoverOverParser(options.hoverParsers);
-
       //Use custom In Screen Navigation Plugin
       options.screenNavigation &&
         options.sources[0].chapters &&

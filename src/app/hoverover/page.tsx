@@ -7,7 +7,7 @@ import React, { useRef } from "react";
 export default function HoverOver() {
   const playerRef = useRef(null);
 
-  const hoverParsers = [
+  const hoverTimestamps = [
     {
       px: "7",
       py: "30",
@@ -37,7 +37,6 @@ export default function HoverOver() {
   ];
 
   const videoJsOptions = {
-    hoverParsers: hoverParsers,
     autoplay: true,
     controls: true,
     playbackRates: [0.5, 1, 1.5, 2, 2.5, 3],
@@ -55,6 +54,11 @@ export default function HoverOver() {
         quality: "360p",
       },
     ],
+    plugins: {
+      customHoverOverParser: {
+        hoverTimestamps: hoverTimestamps,
+      },
+    },
   };
 
   const handlePlayerReady = (player: any) => {
