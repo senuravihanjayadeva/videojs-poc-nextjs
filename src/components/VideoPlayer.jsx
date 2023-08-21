@@ -15,6 +15,7 @@ import "../plugins/custom-external-concept-check-plugin.js";
 import "../plugins/custom-timestamp-plugin";
 import "../plugins/videojs.framebyframe.js";
 import "../plugins/videojs.framebyframe.css";
+import "../plugins/custom-caption-plugin.js";
 
 export const VideoPlayer = (props) => {
   const videoRef = useRef(null);
