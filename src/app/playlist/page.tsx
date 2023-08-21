@@ -94,7 +94,6 @@ export default function Playlist() {
   ];
 
   const videoJsOptions = {
-    playlist: playlist,
     autoplay: true,
     controls: true,
     responsive: true,
@@ -115,6 +114,11 @@ export default function Playlist() {
         quality: "360p",
       },
     ],
+    plugins: {
+      customPlaylistPopup: {
+        playlist: playlist,
+      },
+    },
   };
 
   const handlePlayerReady = (player: any) => {

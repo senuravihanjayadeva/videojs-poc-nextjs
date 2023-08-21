@@ -10,7 +10,6 @@ export default function ScreenNavigation() {
     autoplay: true,
     controls: true,
     responsive: true,
-    screenNavigation: true,
     playbackRates: [0.5, 1, 1.5, 2, 2.5, 3],
     controlBar: {
       skipButtons: {

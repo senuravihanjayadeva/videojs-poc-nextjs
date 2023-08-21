@@ -33,7 +33,6 @@ export default function ExternalConceptCheck() {
   ];
 
   const videoJsOptions = {
-    externalConceptCheck: true,
     autoplay: true,
     controls: true,
     responsive: true,

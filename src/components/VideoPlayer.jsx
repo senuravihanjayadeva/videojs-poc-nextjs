@@ -37,11 +37,7 @@ export const VideoPlayer = (props) => {
 
       //Use Custom Video Quality Plugin
       player.customVideoQualityChanger(options);
-      if (!options.playlist) {
-      } else {
-        //Use Custom Playlist Popup Plugin
-        player.customPlaylistPopup(options.playlist);
-      }
+
       //Use Custom Language Support Plugin
       player.customLanguageSupport();
 
