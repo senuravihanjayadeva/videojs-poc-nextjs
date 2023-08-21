@@ -10,7 +10,6 @@ export default function Chapters() {
     autoplay: true,
     controls: true,
     responsive: true,
-    // poster: SampleImage,
     language: "pt", // Set the language to Spanish
     playbackRates: [0.5, 1, 1.5, 2, 2.5, 3],
     controlBar: {

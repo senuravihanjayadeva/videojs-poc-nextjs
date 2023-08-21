@@ -21,7 +21,8 @@ export default function ExternalConceptCheck() {
     {
       start: 60,
       end: 61,
-      question: "What is the difference between null and undefined in JavaScript?",
+      question:
+        "What is the difference between null and undefined in JavaScript?",
       answers: [
         { id: "1", value: "A", label: " ( A )", starttime: 85 },
         { id: "2", value: "B", label: " ( B )", starttime: 115 },
@@ -36,7 +37,6 @@ export default function ExternalConceptCheck() {
     autoplay: true,
     controls: true,
     responsive: true,
-    questions: questions,
     language: "pt", // Set the language to Spanish
     playbackRates: [0.5, 1, 1.5, 2, 2.5, 3],
     controlBar: {
@@ -53,6 +53,11 @@ export default function ExternalConceptCheck() {
         quality: "360p",
       },
     ],
+    plugins: {
+      customExternalConceptCheck: {
+        questions: questions,
+      },
+    },
   };
 
   const handlePlayerReady = (player: any) => {

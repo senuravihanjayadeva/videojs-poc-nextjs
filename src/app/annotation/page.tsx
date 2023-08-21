@@ -26,7 +26,6 @@ export default function Annotation() {
   ];
 
   const videoJsOptions = {
-    annotation: annotation,
     autoplay: true,
     controls: true,
     playbackRates: [0.5, 1, 1.5, 2, 2.5, 3],
