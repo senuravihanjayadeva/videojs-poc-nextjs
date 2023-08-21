@@ -10,7 +10,6 @@ export default function FrameByFrame() {
     autoplay: true,
     controls: true,
     responsive: true,
-    language: "pt", // Set the language to Spanish
     playbackRates: [0.5, 1, 1.5, 2, 2.5, 3],
     fluid: true,
     sources: [
