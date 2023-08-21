@@ -67,6 +67,12 @@ function Features(props) {
             <li>
               <Link href="/assets/Example?clip=1">Clips</Link>
             </li>
+            <li>
+              <Link href="/caption">Caption</Link>
+            </li>
+            <li>
+              <Link href="/audiodescribe">Audio Describe</Link>
+            </li>
           </div>
 
           <div>

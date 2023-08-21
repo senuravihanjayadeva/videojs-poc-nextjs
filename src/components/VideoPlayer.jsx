@@ -16,6 +16,7 @@ import "../plugins/custom-timestamp-plugin";
 import "../plugins/videojs.framebyframe.js";
 import "../plugins/videojs.framebyframe.css";
 import "../plugins/custom-caption-plugin.js";
+import "../plugins/custom-audio-describe-plugin.js";
 
 export const VideoPlayer = (props) => {
   const videoRef = useRef(null);

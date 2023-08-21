@@ -86,8 +86,8 @@ export default function AssetsClipsPage({
 }) {
   const searchParams = useSearchParams();
   const clip = searchParams.get("clip");
-
-  const [videoSource, setVideoSource] = useState(null);
+  
+  const [videoSource, setVideoSource] = useState<null | any>(null);
 
   const playerRef = useRef(null);
 
