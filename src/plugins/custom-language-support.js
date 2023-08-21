@@ -217,6 +217,7 @@ videojs.registerPlugin("customLanguageSupport", function () {
       const opt = document.createElement("option");
       // styles for the option
       opt.style.backgroundColor = "rgb(109, 110, 111)";
+      opt.style.padding = "3px";
       opt.value = option;
       opt.text = option;
       selectBox.appendChild(opt);

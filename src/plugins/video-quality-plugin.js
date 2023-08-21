@@ -24,6 +24,7 @@ videojs.registerPlugin("customVideoQualityChanger", function (options) {
       const opt = document.createElement("option");
       // styles for the option
       opt.style.backgroundColor = "rgb(109, 110, 111)";
+      opt.style.padding = "3px";
       opt.value = option.src;
       opt.text = option.quality;
       selectBox.appendChild(opt);
