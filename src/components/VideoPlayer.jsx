@@ -13,7 +13,6 @@ import "../plugins/custom-hover-over-parser-plugin.js";
 import "../plugins/custom-in-screen-navigation-plugin.js";
 import "../plugins/custom-external-concept-check-plugin.js";
 import "../plugins/custom-timestamp-plugin";
-
 import "../plugins/videojs.framebyframe.js";
 import "../plugins/videojs.framebyframe.css";
 
@@ -36,9 +35,9 @@ export const VideoPlayer = (props) => {
         onReady && onReady(player);
       }));
 
+      //Use Custom Video Quality Plugin
+      player.customVideoQualityChanger(options);
       if (!options.playlist) {
-        //Use Custom Video Quality Plugin
-        player.customVideoQualityChanger(options.sources);
       } else {
         //Use Custom Playlist Plugin
         // player.customPlaylist(options.playlist);
