@@ -24,6 +24,10 @@ export default function ScreenNavigation() {
         src: "https://firebasestorage.googleapis.com/v0/b/videos-f6df6.appspot.com/o/sample360.mp4?alt=media&token=f84ab19c-5d7f-49c3-9597-75b3c8b59b71",
         type: "video/mp4",
         quality: "360p",
+      },
+    ],
+    plugins: {
+      customInScreenNavigation: {
         chapters: [
           { label: "Chapter 1", time: "0" },
           { label: "Chapter 2", time: "20" },
@@ -34,7 +38,7 @@ export default function ScreenNavigation() {
           { label: "Chapter 7", time: "140" },
         ],
       },
-    ],
+    },
   };
 
   const handlePlayerReady = (player: any) => {

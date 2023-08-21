@@ -39,19 +39,11 @@ export const VideoPlayer = (props) => {
       player.customVideoQualityChanger(options);
       if (!options.playlist) {
       } else {
-        //Use Custom Playlist Plugin
-        // player.customPlaylist(options.playlist);
-
         //Use Custom Playlist Popup Plugin
         player.customPlaylistPopup(options.playlist);
       }
       //Use Custom Language Support Plugin
       player.customLanguageSupport();
-
-      //Use custom In Screen Navigation Plugin
-      options.screenNavigation &&
-        options.sources[0].chapters &&
-        player.customInScreenNavigation(options.sources[0].chapters);
 
       //Use custom Timestamp Plugin
       options.timestamps && player.customTimestamp(options.timestamps);
