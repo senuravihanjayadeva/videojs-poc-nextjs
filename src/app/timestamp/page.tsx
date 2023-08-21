@@ -26,7 +26,6 @@ export default function Annotation() {
   ];
 
   const videoJsOptions = {
-    timestamps: timestamps,
     autoplay: true,
     controls: true,
     playbackRates: [0.5, 1, 1.5, 2, 2.5, 3],
@@ -44,6 +43,11 @@ export default function Annotation() {
         quality: "360p",
       },
     ],
+    plugins: {
+      customTimestamp: {
+        timestamps: timestamps,
+      },
+    },
   };
 
   const handlePlayerReady = (player: any) => {

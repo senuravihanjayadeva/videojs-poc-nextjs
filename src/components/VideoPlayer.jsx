@@ -40,9 +40,6 @@ export const VideoPlayer = (props) => {
 
       //Use Custom Language Support Plugin
       player.customLanguageSupport();
-
-      //Use custom Timestamp Plugin
-      options.timestamps && player.customTimestamp(options.timestamps);
     } else {
       const player = playerRef.current;
 
