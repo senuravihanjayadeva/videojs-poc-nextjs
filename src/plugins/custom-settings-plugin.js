@@ -15,7 +15,7 @@ videojs.registerPlugin("customSettings", function () {
     var myButtonDom = myButton.el();
     // Inside your plugin code
     myButtonDom.classList.add("settings-button");
-    myButtonDom.innerHTML = '<span class="vjs-icon-cog"></span>';
+    myButtonDom.innerHTML = '<button class="vjs-icon-cog"></button>';
 
     // Setting control text for the button hover effect
     myButton.controlText("Settings");
@@ -45,6 +45,12 @@ videojs.registerPlugin("customSettings", function () {
         videoDoc.appendChild(popup);
       }
     };
+
+    player.on('click', function(evt) { 
+      if (evt.target.tagName === 'VIDEO' || evt.target.tagName === 'SPAN') {
+        popup.remove(); 
+      }
+    });
   });
 });
 

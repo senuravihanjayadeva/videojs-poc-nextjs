@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const pendingItems = ["Setting"];
+const pendingItems = [];
 
 function Features(props) {
   return (
@@ -58,11 +58,11 @@ function Features(props) {
             </li>
             <li>
               <Link href="/externalconceptcheck">
-                External Concept Check( Have some Improvements to do)
+                External Concept Check ( Have to do some Improvements)
               </Link>
             </li>
             <li>
-              <Link href="/internalconceptcheck">Internal Concept Check ( Have some Improvements to do)</Link>
+              <Link href="/internalconceptcheck">Internal Concept Check ( Have to do some Improvements)</Link>
             </li>
             <li>
               <Link href="/framebyframe">Frame By Frame</Link>
@@ -75,6 +75,9 @@ function Features(props) {
             </li>
             <li>
               <Link href="/audiodescribe">Audio Describe</Link>
+            </li>
+            <li>
+              <Link href="/settings">Settings ( Have to do some Improvements)</Link>
             </li>
           </div>
 
