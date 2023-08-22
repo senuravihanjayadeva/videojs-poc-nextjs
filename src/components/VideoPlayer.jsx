@@ -6,6 +6,7 @@ import "video.js/dist/video-js.css";
 import languageTranslate from "../data/language.json";
 
 import "../plugins/custom-chapter-plugin.js";
+import "../plugins/custom-chapter.css";
 import "../plugins/custom-playlist-plugin.js";
 import "../plugins/custom-playlist-popup-plugin.js";
 import "../plugins/custom-chapter-seekbar.js";

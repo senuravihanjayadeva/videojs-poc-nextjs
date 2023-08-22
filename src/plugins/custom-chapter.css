@@ -1,0 +1,22 @@
+#chapter-controlbar-div {
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 300px; /* Adjust this width as needed */
+}
+
+.chapter-controlbar-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.chapter-controlbar-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chapter-controlbar-column p {
+  margin: 0;
+}
