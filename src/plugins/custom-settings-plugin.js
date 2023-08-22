@@ -1,6 +1,6 @@
 import videojs from "video.js";
 
-videojs.registerPlugin("customSettings", function () {
+videojs.registerPlugin("customSettings", function (languageTranslate) {
   const player = this;
 
   player.ready(() => {
@@ -27,11 +27,11 @@ videojs.registerPlugin("customSettings", function () {
     popup.className = "custom-settings-popup-panel";
 
     //Language Select Row
-    createLanguageSelectSetting(popup);
+    createLanguageSelectSetting(popup, languageTranslate);
     //Video Quality Select Row
-    createQualitySelectSetting(popup);
+    createQualitySelectSetting(popup, languageTranslate);
     //Video Speed Select Row
-    createSpeedSelectSetting(popup)
+    createSpeedSelectSetting(popup, languageTranslate);
 
     // Setting the control button click function
     myButtonDom.onclick = function () {
@@ -46,22 +46,22 @@ videojs.registerPlugin("customSettings", function () {
       }
     };
 
-    player.on('click', function(evt) { 
-      if (evt.target.tagName === 'VIDEO' || evt.target.tagName === 'SPAN') {
-        popup.remove(); 
+    player.on("click", function (evt) {
+      if (evt.target.tagName === "VIDEO" || evt.target.tagName === "SPAN") {
+        popup.remove();
       }
     });
   });
 });
 
-function createLanguageSelectSetting(popup) {
+function createLanguageSelectSetting(popup, languageTranslate) {
   let settingItem = document.createElement("div");
   settingItem.className = "custom-setting-item-row";
 
   let colSettingItemLeft = document.createElement("div");
   colSettingItemLeft.className = "custom-setting-item-col";
   let paragraphItem = document.createElement("p");
-  paragraphItem.textContent = "Language";
+  paragraphItem.textContent = languageTranslate["Language"];
   colSettingItemLeft.appendChild(paragraphItem);
 
   let colSettingItemRight = document.createElement("div");
@@ -80,14 +80,14 @@ function createLanguageSelectSetting(popup) {
   popup.appendChild(settingItem);
 }
 
-function createQualitySelectSetting(popup) {
+function createQualitySelectSetting(popup, languageTranslate) {
   let settingItem = document.createElement("div");
   settingItem.className = "custom-setting-item-row";
 
   let colSettingItemLeft = document.createElement("div");
   colSettingItemLeft.className = "custom-setting-item-col";
   let paragraphItem = document.createElement("p");
-  paragraphItem.textContent = "Quality";
+  paragraphItem.textContent = languageTranslate["Quality"];
   colSettingItemLeft.appendChild(paragraphItem);
 
   let colSettingItemRight = document.createElement("div");
@@ -107,14 +107,14 @@ function createQualitySelectSetting(popup) {
   popup.appendChild(settingItem);
 }
 
-function createSpeedSelectSetting(popup) {
+function createSpeedSelectSetting(popup, languageTranslate) {
   let settingItem = document.createElement("div");
   settingItem.className = "custom-setting-item-row";
 
   let colSettingItemLeft = document.createElement("div");
   colSettingItemLeft.className = "custom-setting-item-col";
   let paragraphItem = document.createElement("p");
-  paragraphItem.textContent = "Speed";
+  paragraphItem.textContent = languageTranslate["Speed"];
   colSettingItemLeft.appendChild(paragraphItem);
 
   let colSettingItemRight = document.createElement("div");
@@ -126,10 +126,7 @@ function createSpeedSelectSetting(popup) {
   );
   if (videoSpeedSelectBox) {
     colSettingItemRight.appendChild(videoSpeedSelectBox);
-  }else{
-    console.log("hello")
   }
-
   settingItem.appendChild(colSettingItemLeft);
   settingItem.appendChild(colSettingItemRight);
 

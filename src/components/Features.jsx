@@ -33,7 +33,7 @@ function Features(props) {
               <Link href="/rendition">Redition Control</Link>
             </li>
             <li>
-              <Link href="/"> Multi Language Support</Link>
+              <Link href="/settings"> Multi Language Support</Link>
             </li>
             <li>
               <Link href="/annotation">Annotation</Link>
