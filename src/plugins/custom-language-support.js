@@ -203,10 +203,12 @@ videojs.registerPlugin("customLanguageSupport", function () {
 
     // Create our button's DOM Component
     let selectBoxContainer = myButton.el();
+    selectBoxContainer.id = "custom-select-language";
     selectBoxContainer.classList.add("custom-select-language");
     selectBoxContainer.classList.add("vjs-button");
 
     const selectBox = document.createElement("select");
+    selectBox.id = "language-select-box"
     // styles for the select
     selectBox.style.backgroundColor = "transparent";
     selectBox.style.cursor = "pointer";

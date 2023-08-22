@@ -19,6 +19,8 @@ videojs.registerPlugin("customAudioDescribe", function (options) {
     myButtonDom.style.fontSize = "medium";
     // Setting control text for the button hover effect
     myButton.controlText("Turn on Video Description");
+  
+
 
     let currentVideoSource = options.sources[0].src;
     let currentTime = 0;

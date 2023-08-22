@@ -9,6 +9,7 @@ export default function Setting() {
   const videoJsOptions = {
     autoplay: true,
     controls: true,
+    settings: true,
     playbackRates: [0.5, 1, 1.5, 2, 2.5, 3],
     controlBar: {
       skipButtons: {

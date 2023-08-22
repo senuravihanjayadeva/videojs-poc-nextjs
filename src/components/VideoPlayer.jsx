@@ -19,6 +19,9 @@ import "../plugins/custom-caption-plugin.js";
 import "../plugins/custom-audio-describe-plugin.js";
 import "../plugins/custom-internal-concept-check-plugin.js";
 import "../plugins/custom-internal-concept-check.css"
+import "../plugins/custom-settings-plugin.js"
+import "../plugins/custom-settings.css";
+import "../plugins/custom-speed-control-plugin";
 
 export const VideoPlayer = (props) => {
   const videoRef = useRef(null);
@@ -44,6 +47,10 @@ export const VideoPlayer = (props) => {
 
       //Use Custom Language Support Plugin
       player.customLanguageSupport();
+
+      options.settings && player.customSettings();
+
+      options.settings && player.customSpeedControl();
     } else {
       const player = playerRef.current;
 

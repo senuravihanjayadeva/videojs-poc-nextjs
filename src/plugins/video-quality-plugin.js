@@ -12,10 +12,12 @@ videojs.registerPlugin("customVideoQualityChanger", function (options) {
 
     // Create our button's DOM Component
     let selectBoxContainer = myButton.el();
+    selectBoxContainer.id = "custom-select-quality"
     selectBoxContainer.classList.add("custom-select-quality");
     selectBoxContainer.classList.add("vjs-button");
 
     const selectBox = document.createElement("select");
+    selectBox.id = "video-quality-select-box";
     // styles for the select
     selectBox.style.backgroundColor = "transparent";
     selectBox.style.cursor = "pointer";
