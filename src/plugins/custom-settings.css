@@ -6,7 +6,7 @@
   text-align: left;
   max-height: 50%;
   max-width: 70%;
-  overflow: scroll;
+  overflow: auto;
   padding: 1%;
   background-color: #000000;
 }
