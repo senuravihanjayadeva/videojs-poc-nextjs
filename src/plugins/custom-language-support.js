@@ -22,7 +22,7 @@ videojs.registerPlugin("customLanguageSupport", function () {
     selectBox.style.backgroundColor = "transparent";
     selectBox.style.cursor = "pointer";
 
-    const list = ["en", "ar", "pt", "es"];
+    const list = ["en", "ar", "pt", "hi"];
 
     let languageParam = getQueryLang();
 
