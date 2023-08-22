@@ -9,24 +9,52 @@ export default function ExternalConceptCheck() {
 
   const questions = [
     {
-      start: 3,
-      end: 4,
+      start: 288,
+      end: 289,
       question: "What does the term hoisting refer to in JavaScript?",
       answers: [
-        { id: "1", value: "A", label: " ( A )", starttime: 10 },
-        { id: "2", value: "B", label: " ( B )", starttime: 25 },
-        { id: "3", value: "C", label: " ( C )", starttime: 40 },
+        {
+          id: "1",
+          value: "A",
+          label: " ( A )",
+          starttime: 292,
+          endtime: 337,
+          skiptime: 390,
+        },
+        {
+          id: "2",
+          value: "B",
+          label: " ( B )",
+          starttime: 336,
+          endtime: 345,
+          skiptime: 390,
+        },
+        { id: "3", value: "C", label: " ( C )", starttime: 346 },
       ],
     },
     {
-      start: 60,
-      end: 61,
+      start: 826,
+      end: 827,
       question:
         "What is the difference between null and undefined in JavaScript?",
       answers: [
-        { id: "1", value: "A", label: " ( A )", starttime: 85 },
-        { id: "2", value: "B", label: " ( B )", starttime: 115 },
-        { id: "3", value: "C", label: " ( C ) ", starttime: 130 },
+        {
+          id: "1",
+          value: "A",
+          label: " ( A )",
+          starttime: 830,
+          endtime: 883,
+          skiptime: 953,
+        },
+        {
+          id: "2",
+          value: "B",
+          label: " ( B )",
+          starttime: 884,
+          endtime: 935,
+          skiptime: 953,
+        },
+        { id: "3", value: "C", label: " ( C ) ", starttime: 936 },
       ],
     },
     // Add more time ranges as needed

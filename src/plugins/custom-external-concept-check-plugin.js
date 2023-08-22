@@ -2,11 +2,12 @@ import videojs from "video.js";
 
 videojs.registerPlugin("customExternalConceptCheck", function (options) {
   const player = this;
+  let newStartTime = null;
+  let newEndTime = null;
+  let newSkipTime = null;
 
   // Functiont to create a box for answers
   function createAnswer(item) {
-    let newStartTime = null;
-
     // Create a modal container
     const modalContainer = document.createElement("div");
     modalContainer.className = "modal-external-concept-check-container";
@@ -67,6 +68,8 @@ videojs.registerPlugin("customExternalConceptCheck", function (options) {
       radioContainer.appendChild(document.createElement("br"));
       radioInput.addEventListener("change", () => {
         if (radioInput.checked) {
+          newSkipTime = answer.skiptime;
+          newEndTime = answer.endtime;
           newStartTime = answer.starttime;
           btnElement.style.display = "block";
         }
@@ -96,6 +99,36 @@ videojs.registerPlugin("customExternalConceptCheck", function (options) {
   }
 
   player.ready(() => {
+    // Add pause markers to the seek bar
+    const progressControl = player.controlBar.progressControl;
+    const seekBar = progressControl.seekBar.el();
+
+    // Listen for the 'loadedmetadata' event to ensure the duration is available
+    player.on("loadedmetadata", function () {
+      const duration = player.duration(); // Total video duration in seconds
+      options.questions.forEach((pausePoints, index) => {
+        const marker = document.createElement("div");
+        marker.classList.add("cue-points-marker");
+        marker.id = `cue-points-marker-${index}`;
+        marker.style.left = (pausePoints.start / duration) * 100 + "%";
+        marker.style.position = "absolute";
+        marker.style.width = "5px";
+        marker.style.height = "100%";
+        marker.style.backgroundColor = "#ff5722";
+        marker.style.zIndex = "1";
+        seekBar.appendChild(marker);
+      });
+    });
+
+    //Skip the video after answer explaining
+    player.on("timeupdate", () => {
+      const currentTime = Math.floor(player.currentTime());
+      if (currentTime == newEndTime) {
+        player.currentTime(newSkipTime);
+        player.play();
+      }
+    });
+
     let activePauseIndex = -1; // Index of the currently active pause time range
 
     player.on("timeupdate", () => {
@@ -103,7 +136,7 @@ videojs.registerPlugin("customExternalConceptCheck", function (options) {
 
       // Check if the current time is within any of the pause time ranges
       const newPauseIndex = options.questions.findIndex(
-        (range) => currentTime >= range.start && currentTime < range.end
+        (range) => currentTime == range.start
       );
 
       if (newPauseIndex !== activePauseIndex) {
