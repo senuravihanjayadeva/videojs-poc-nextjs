@@ -3,7 +3,8 @@
 }
 
 .internal-answer-container:hover{
-    background-color: transparent;
+    background-color: white;
+    opacity: 0.4;
     border: 4px solid #ffffff;
     cursor: pointer;
 }
