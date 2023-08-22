@@ -3,15 +3,12 @@ import Features from "@/components/Features";
 import VideoPlayer from "@/components/VideoPlayer";
 import React, { useRef } from "react";
 
-export default function Home() {
+export default function Setting() {
   const playerRef = useRef(null);
 
   const videoJsOptions = {
     autoplay: true,
     controls: true,
-    responsive: true,
-    // poster: SampleImage,
-    language: "pt", // Set the language to Spanish
     playbackRates: [0.5, 1, 1.5, 2, 2.5, 3],
     controlBar: {
       skipButtons: {
@@ -27,6 +24,11 @@ export default function Home() {
         quality: "360p",
       },
     ],
+    // plugins: {
+    //   customAnnotation: {
+    //     annotation: annotation,
+    //   },
+    // },
   };
 
   const handlePlayerReady = (player: any) => {
@@ -45,7 +47,7 @@ export default function Home() {
   return (
     <div style={{ padding: "5% 10%" }}>
       <Features>
-      <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} />
+        <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} />
       </Features>
     </div>
   );

@@ -19,7 +19,7 @@ export default function AudioDescribe() {
     fluid: true,
     sources: [
       {
-        src: "https://firebasestorage.googleapis.com/v0/b/videos-f6df6.appspot.com/o/PS116ZNW.mp4?alt=media&token=b71ad4c8-2162-413e-80c1-c89df1476279",
+        src: "https://firebasestorage.googleapis.com/v0/b/sri-lanka-airlines-storage.appspot.com/o/videojs%2Faddisable.mp4?alt=media&token=b356d81d-b17a-4e18-8907-3da969c2a046",
         type: "video/mp4",
         quality: "360p",
       },
@@ -28,12 +28,12 @@ export default function AudioDescribe() {
       customAudioDescribe: {
         sources: [
           {
-            src: "https://firebasestorage.googleapis.com/v0/b/videos-f6df6.appspot.com/o/PS116ZNW.mp4?alt=media&token=b71ad4c8-2162-413e-80c1-c89df1476279",
+            src: "https://firebasestorage.googleapis.com/v0/b/sri-lanka-airlines-storage.appspot.com/o/videojs%2Faddisable.mp4?alt=media&token=b356d81d-b17a-4e18-8907-3da969c2a046",
             type: "video/mp4",
             quality: "360p",
           },
           {
-            src: "https://firebasestorage.googleapis.com/v0/b/videos-f6df6.appspot.com/o/PS116W1K.mp4?alt=media&token=08c8c9ed-2763-4fc9-828b-5037420369c5",
+            src: "https://firebasestorage.googleapis.com/v0/b/sri-lanka-airlines-storage.appspot.com/o/videojs%2Fadenable.mp4?alt=media&token=00ff67c7-b5a3-4895-8aa1-2cad5a51d1e3",
             type: "video/mp4",
             quality: "360p",
           },

@@ -30,7 +30,7 @@ function Features(props) {
               <Link href="/">Speed Control</Link>
             </li>
             <li>
-              <Link href="/">Redition Control</Link>
+              <Link href="/rendition">Redition Control</Link>
             </li>
             <li>
               <Link href="/"> Multi Language Support</Link>

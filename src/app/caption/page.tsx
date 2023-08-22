@@ -19,7 +19,7 @@ export default function AudioDescribe() {
     fluid: true,
     sources: [
       {
-        src: "https://firebasestorage.googleapis.com/v0/b/videos-f6df6.appspot.com/o/y2mate.is%20-%20DeSTiNY%20ANiMaTioN%20%20~%20%20NO%20SouND%20(university%20project)-IsgM7HjEVKU-360p-1692625619.mp4?alt=media&token=79d92f99-58e5-4249-9ba1-a0684ce2ea1d",
+        src: "http://vjs.zencdn.net/v/oceans.mp4",
         type: "video/mp4",
         quality: "360p",
       },
