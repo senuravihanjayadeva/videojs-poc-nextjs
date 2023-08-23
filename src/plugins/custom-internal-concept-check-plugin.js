@@ -4,6 +4,27 @@ videojs.registerPlugin("customInternalConceptCheck", function (options) {
   const player = this;
 
   player.ready(() => {
+    // Add pause markers to the seek bar
+    const progressControl = player.controlBar.progressControl;
+    const seekBar = progressControl.seekBar.el();
+
+    // Listen for the 'loadedmetadata' event to ensure the duration is available
+    player.on("loadedmetadata", function () {
+      const duration = player.duration(); // Total video duration in seconds
+      options.questions.forEach((pausePoints, index) => {
+        const marker = document.createElement("div");
+        marker.classList.add("cue-points-marker");
+        marker.id = `cue-points-marker-${index}`;
+        marker.style.left = (pausePoints.starttime / duration) * 100 + "%";
+        marker.style.position = "absolute";
+        marker.style.width = "5px";
+        marker.style.height = "100%";
+        marker.style.backgroundColor = "#ff5722";
+        marker.style.zIndex = "1";
+        seekBar.appendChild(marker);
+      });
+    });
+
     let activePauseIndex = -1; // Index of the currently active pause time range
 
     player.on("timeupdate", () => {
