@@ -63,15 +63,48 @@ videojs.registerPlugin("customInternalConceptCheck", function (options) {
   function createAnswerModal(question) {
     question.answers.forEach((answer, index) => {
       // Create a common parent container for the modal and text container
+      // Create a common parent container for the modal and text container
       const parentContainer = document.createElement("div");
-      parentContainer.className = "internal-answer-container";
-      parentContainer.id = `internal-answer-container-${index}`;
+      parentContainer.className = "modal-parent-answer-container";
       parentContainer.style.position = "absolute";
-      parentContainer.style.top = `${answer.py}%`; // Adjust the y-coordinate
-      parentContainer.style.left = `${answer.px}%`; // Adjust the x-coordinate
-      parentContainer.style.width = `50px`;
-      parentContainer.style.height = `50px`;
+      parentContainer.style.top = `${answer.cy}%`; // Adjust the y-coordinate
+      parentContainer.style.left = `${answer.cx}%`; // Adjust the x-coordinate
+      parentContainer.style.width = `${answer.cw}`;
+      parentContainer.style.height = `${answer.ch}`;
+      parentContainer.style.backgroundColor = "transparent";
       parentContainer.style.display = "block"; // Hide parent container initially
+
+      const hoverContainer = document.createElement("div");
+      hoverContainer.className = "internal-answer-container";
+      hoverContainer.id = `internal-answer-container-${index}`;
+      hoverContainer.style.position = "absolute";
+      hoverContainer.style.top = `${answer.py}%`; // Adjust the y-coordinate
+      hoverContainer.style.left = `${answer.px}%`; // Adjust the x-coordinate
+      hoverContainer.style.width = `50px`;
+      hoverContainer.style.height = `50px`;
+      hoverContainer.style.display = "none"; // Hide parent container initially
+
+      parentContainer.appendChild(hoverContainer);
+
+      // Show modal at the start time
+      player.on("timeupdate", () => {
+        const currentTimePlayer = Math.floor(player.currentTime());
+        if (currentTimePlayer == question.starttime) {
+          parentContainer.style.display = "block";
+        } else {
+          parentContainer.style.display = "none";
+        }
+      });
+
+      // Show modal text container on hover
+      parentContainer.addEventListener("mouseenter", () => {
+        hoverContainer.style.display = "block";
+      });
+
+      // Hide modal text container on hover out
+      parentContainer.addEventListener("mouseleave", () => {
+        hoverContainer.style.display = "none";
+      });
 
       parentContainer.onclick = () => {
         player.currentTime(answer.starttime);
